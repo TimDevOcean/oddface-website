@@ -1,0 +1,68 @@
+* {
+    text-align: center;
+}
+
+.nav-bar {
+    position: absolute;
+    z-index: 100;
+    max-width: 1250px !important;
+    left: 0; 
+    right: 0; 
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    height: 75px;
+}
+
+.nav-bar > div {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.mid-nav {
+    height: 75px;
+    background: none;
+    border-radius: 50px;
+}
+
+.mid-nav > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.l-menu {
+    color: #fff;
+    background-color: #000;
+    border-radius: 50px 0 0 50px;
+    margin-right: -1px !important;
+    z-index: 2;
+}
+
+.r-menu {
+    color: #000;
+    background-color: #fff;
+    border-radius: 0 50px 50px 0;
+}
+
+.nav-logo {
+    background-image: url("https://devoceangh.com/wp-content/uploads/2022/06/of-logo-1.jpg");
+    background-position: center;
+    background-size: cover;
+    background-color: #000;
+}
+
+.nav-cart-btn, .nav-account-btn {
+    background: none;
+    border: none;
+}
+
+button.nav-account-btn {
+    transform: scale(1.25);
+}
+
+span.nav-cart-total {
+    position: absolute;
+}
