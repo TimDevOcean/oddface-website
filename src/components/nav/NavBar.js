@@ -1,9 +1,11 @@
 import React from 'react';
 import "./style.css";
 import CartNav from './CartNav';
+import Menu from './Menu';
 
 import { Grid, Container } from "@mui/material";
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+
 
 const NavBar = ( { cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart } ) => {
 
@@ -20,13 +22,13 @@ const NavBar = ( { cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart } ) => {
                 
                 <Grid className='mid-nav' container item xs={12} md={10}>
                     <Grid className='l-menu' item xs={12} sm={12} md={5.5}>
-                    <span>menu</span>
+                        <Menu mi1="Home" mi2="Shop"/>
                     </Grid>
                     <Grid className='nav-logo' item xs={12} sm={12} md={1}>
                     
                     </Grid>
                     <Grid className='r-menu' item xs={12} sm={12} md={5.5}>
-                    <span>menu</span>
+                    <Menu mi1="Stay ODD" mi2="Contact"/>
                     </Grid>
                 </Grid>
 
