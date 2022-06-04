@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import CloseSharpIcon from '@mui/icons-material/CloseSharp';
+
 const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
   
     const handleUpdateCartQty = (lineItemId, quantity) => {
@@ -15,7 +17,7 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
         <div className="cart-item">
         <img className="cart-item-image" src={item.image.url} alt={item.name} />
         <div className="cart-item-details">
-            <h4 className="cart-item-details-name">{item.name}</h4>
+            <h6 className="cart-item-details-name">{item.name}</h6>
             <div className="cart-item-details-qty">
             <button type="button" onClick={() => item.quantity > 1 ? handleUpdateCartQty(item.id, item.quantity - 1) : handleRemoveFromCart()}>-</button>
                 <p>{item.quantity}</p>
@@ -24,7 +26,7 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
             <div className="cart-item-details-price">{item.line_total.formatted_with_symbol}</div>
         </div>
         <button type="button" className="cart-item-remove" onClick={handleRemoveFromCart}>
-            Remove
+            <CloseSharpIcon />
         </button>
         </div>
     );

@@ -73,6 +73,7 @@
 }
 
 .nav-cart-btn, .nav-account-btn {
+    cursor: pointer;
     background: none;
     border: none;
 }
@@ -82,5 +83,7 @@ button.nav-account-btn {
 }
 
 span.nav-cart-total {
+    color: rgb(163, 0, 0);
     position: absolute;
+    font-weight: 500;
 }

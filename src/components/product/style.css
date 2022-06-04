@@ -21,7 +21,18 @@
 }
 
 button.product-btn {
-    min-width: 40px;
-    padding: 0;
+    min-width: 30px;
+    padding: 5px;
+    margin-left: 5px;
     color: #202020;
+    border-radius: 100px;
+}
+
+button.product-btn:hover {
+    color: #fff;
+    background-color: #202020;
+}
+
+.cart-icon {
+    fill: #000;
 }

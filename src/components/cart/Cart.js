@@ -1,6 +1,8 @@
 import React from 'react';
 import CartItem from './CartItem';
 import PropTypes from 'prop-types';
+import "./style.css";
+
 
 const Cart = ({ cart, onRemoveFromCart, onEmptyCart, onUpdateCartQty }) => {
 
@@ -34,19 +36,18 @@ const Cart = ({ cart, onRemoveFromCart, onEmptyCart, onUpdateCartQty }) => {
 
   const renderTotal = () => (
     <div className="cart-total">
-      <p className="cart-total-title">Subtotal:</p>
+      <h6 className="cart-total-title">Subtotal</h6>
       <p className="cart-total-price">{cart.subtotal.formatted_with_symbol}</p>
     </div>
   );
 
   return (
     <div className="cart">
-      <h4 className="cart-heading">Your Shopping Cart</h4>
       { renderEmptyMessage() }
       { renderItems() }
-      { renderTotal() }
       <div className="cart-footer">
-        <button className="cart-btn-empty" onClick={handleEmptyCart}>Empty cart</button>
+      { renderTotal() }
+        <button className="cart-btn-empty" onClick={handleEmptyCart}>Clear Cart</button>
         <button className="cart-btn-checkout">Checkout</button> 
       </div>
     </div>

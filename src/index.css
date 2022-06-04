@@ -5,6 +5,18 @@
   box-sizing: border-box;
 }
 
+h6 {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.1rem;
+}
+
+button {
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
 .app-container {
   max-width: 1050px;
   margin: auto;

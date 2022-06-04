@@ -26,7 +26,7 @@ const ProductItem = ({ product, onAddToCart }) => {
             {product.price.formatted_with_symbol}
           </p>
           <Button name="Add to cart" className="product-btn" onClick={handleAddToCart}>
-            <ShoppingBagOutlinedIcon />
+            <ShoppingBagOutlinedIcon className="cart-icon" />
           </Button>
         </div>
       </CardContent>
