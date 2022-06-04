@@ -22,7 +22,9 @@ const NavBar = ( { cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart } ) => {
                 
                 <Grid className='mid-nav' container item xs={12} md={10}>
                     <Grid className='l-menu' item xs={12} sm={12} md={5.5}>
-                        <Menu mi1="Home" mi2="Shop"/>
+                        <Menu mi1="Home" mi1link="/"
+                         mi2="Shop" mi2link="/shop"
+                         />
                     </Grid>
                     <Grid className='nav-logo' item xs={12} sm={12} md={1}>
                     

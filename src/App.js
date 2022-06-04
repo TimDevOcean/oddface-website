@@ -4,6 +4,7 @@ import ProductsList from './components/product/ProductsList';
 import NavBar from './components/nav/NavBar';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
+import Checkout from './components/checkout/Checkout';
 
 
 
@@ -15,6 +16,7 @@ const App = () => {
   useEffect(() => {
     fetchProducts();
     fetchCart();
+    console.log(commerce);
   }, []);
 
   const fetchProducts = () => {
@@ -75,13 +77,31 @@ const App = () => {
         onEmptyCart={handleEmptyCart}
       />
     </div>
-      <Header />
-    <div className='app-container'>
-      <ProductsList 
-        products={products}
-        onAddToCart={handleAddToCart}
+  
+    <Routes>
+      <Route path="/" element={<h6>Home</h6>} />
+      <Route path="/shop" element={
+        <>
+        <Header title="Shop" />
+        <div className='app-container'>
+          <ProductsList 
+            products={products}
+            onAddToCart={handleAddToCart}
+          />
+        </div>
+        </> }
       />
-    </div>
+      <Route path="/checkout" element={
+        <>
+        <Header title="Checkout" />
+        <div className='app-container'>
+          <Checkout 
+          
+          />
+        </div>
+        </> }
+      />
+    </Routes>
     </div>
   );
   

@@ -2,11 +2,11 @@ import React from 'react';
 
 
 
-const Header = () => {
+const Header = (props) => {
 
     return (
         <div className='page-header'>
-            <h2>Shop</h2>
+            <h2>{props.title}</h2>
         </div>
     );
 };

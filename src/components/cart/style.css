@@ -75,7 +75,8 @@ button.cart-item-remove:hover {
     border-radius: 0 0 15px 15px;
 }
 
-.cart-footer button {
+.cart-footer button, a {
+    font-size: 15px;
     color: #fff;
     background: none;
     border: none;
@@ -85,10 +86,9 @@ button.cart-item-remove:hover {
     cursor: pointer;
 }
 
-.cart-footer button:hover {
+.cart-footer button:hover, a:hover {
     color: red;
     border-color: red;
-    transform: scale(0.95);
     transition: 0.3s ease;
 }
 

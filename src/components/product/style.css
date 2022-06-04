@@ -1,12 +1,14 @@
 .product-card {
     border-radius: 20px !important;
-    border: solid 1px #dddddd !important;
+    border: solid 0px #dddddd !important;
     box-shadow: rgba(0, 0, 0, 0) 0px 4px 12px !important;
 }
 
 .product-info {
     text-align: center;
     border-top: solid 1px #dddddd;
+    width: 80%;
+    margin: auto;
 }
 
 .product-details {
