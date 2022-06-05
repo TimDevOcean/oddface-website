@@ -161,12 +161,13 @@ const Checkout = ({ cart, orderInfo, orderError, handleCheckout }) => {
           region: stateProvince,
         }
       );
-
-      setUser({
+        
+     setUser({
         ...user,
         shippingOptions: options,
         shippingOption: { id: options[0].id },
       });
+      console.log(options);
     };
 
     if (

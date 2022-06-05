@@ -5,6 +5,7 @@ import NavBar from './components/nav/NavBar';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Checkout from './components/checkout/Checkout';
+import Home from './components/home/Home';
 
 
 
@@ -104,7 +105,7 @@ const App = () => {
     </div>
   
     <Routes>
-      <Route path="/" element={<h6>Home</h6>} />
+      <Route path="/" element={<Home />} />
       <Route path="/shop" element={
         <>
         <Header title="Shop" />

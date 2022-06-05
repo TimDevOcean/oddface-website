@@ -19,9 +19,9 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
         <div className="cart-item-details">
             <h6 className="cart-item-details-name">{item.name}</h6>
             <div className="cart-item-details-qty">
-            <button type="button" onClick={() => item.quantity > 1 ? handleUpdateCartQty(item.id, item.quantity - 1) : handleRemoveFromCart()}>-</button>
+            <button onClick={() => item.quantity > 1 ? handleUpdateCartQty(item.id, item.quantity - 1) : handleRemoveFromCart()}>-</button>
                 <p>{item.quantity}</p>
-            <button type="button" onClick={() => handleUpdateCartQty(item.id, item.quantity + 1)}>+</button>
+            <button onClick={() => handleUpdateCartQty(item.id, item.quantity + 1)}>+</button>
             </div>
             <div className="cart-item-details-price">{item.line_total.formatted_with_symbol}</div>
         </div>
