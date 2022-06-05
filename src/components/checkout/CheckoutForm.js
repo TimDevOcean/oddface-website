@@ -1,6 +1,5 @@
 import {
   Grid,
-  Button,
   Select,
   MenuItem,
   TextField,
@@ -17,7 +16,7 @@ const CheckoutForm = ({
   checkoutData,
   handleSelectChange,
 }) => (
-  <form onSubmit={handleSubmit} autoComplete="off">
+  <form className="checkout-form" onSubmit={handleSubmit} autoComplete="off">
     <Grid container spacing={4}>
       <Grid item xs={12} sm={6}>
         <TextField
@@ -155,12 +154,12 @@ const CheckoutForm = ({
     </Grid>
 
     <div className="actions">
-      <Button size="medium" to="/cart" component={Link} variant="contained">
+      <Link to="/cart">
         Go Back
-      </Button>
-      <Button type="submit" size="medium" color="secondary" variant="contained">
+      </Link>
+      <button type="submit">
         Next
-      </Button>
+      </button>
     </div>
   </form>
 );

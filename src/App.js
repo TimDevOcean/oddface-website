@@ -12,12 +12,8 @@ import Checkout from './components/checkout/Checkout';
 const App = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState({});
-
-  useEffect(() => {
-    fetchProducts();
-    fetchCart();
-    console.log(commerce);
-  }, []);
+  const [orderInfo, setOrderInfo] = useState({});
+  const [orderError, setOrderError] = useState("");
 
   const fetchProducts = () => {
     commerce.products.list().then((products) => {
@@ -67,6 +63,35 @@ const App = () => {
     });
   }
 
+  const refreshCart = async () => {
+    const newCart = await commerce.cart.refresh();
+    setCart(newCart);
+  };
+
+  const handleCheckout = async (checkoutId, orderData) => {
+    try {
+      const incomingOrder = await commerce.checkout.capture(
+        checkoutId,
+        orderData
+      );
+
+      setOrderInfo(incomingOrder);
+
+      refreshCart();
+    } catch (error) {
+      setOrderError(
+        (error.data && error.data.error && error.data.error.message) ||
+          "There is an error"
+      );
+    }
+  };
+
+  useEffect(() => {
+    fetchProducts();
+    fetchCart();
+    console.log(commerce);
+  }, []);
+
   return (
     <div className="app">
     <div className=''>
@@ -96,7 +121,10 @@ const App = () => {
         <Header title="Checkout" />
         <div className='app-container'>
           <Checkout 
-          
+              orderInfo={orderInfo}
+              orderError={orderError}
+              cart={cart}
+              handleCheckout={handleCheckout}
           />
         </div>
         </> }

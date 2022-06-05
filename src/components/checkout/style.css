@@ -1,0 +1,73 @@
+.checkout {
+    font-family: 'Poppins' !important;
+    margin-top: 50px;
+    padding-bottom: 15px;
+  }
+
+input, label, span, select, button, div {
+    font-family: 'Poppins' !important;
+  }
+  
+  .checkout .paper {
+    max-width: 700px;
+    padding: 25px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 25px;
+  }
+  
+  .checkout .paper h6 {
+    margin: 20px 0;
+  }
+  
+  .checkout .paper .actions.payment-actions {
+    margin-top: 25px;
+  }
+  .checkout .paper .actions {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .checkout .paper .actions a {
+    margin-right: 15px;
+    margin-left: 0;
+  }
+  
+  .checkout .paper .stepper {
+    padding: 20px;
+    padding-bottom: 30px;
+  }
+  
+  .products-spinner {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+  }
+  
+  .confirmation h5 {
+    margin: 20px 0;
+  }
+  
+  .confirmation a {
+    color: #000000;
+    background-color: #03dac5;
+  }
+
+  button, a {
+    text-decoration: none;
+    font-size: 15px;
+    color: #202020;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #202020;
+    margin: 5px;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+ button:hover, a:hover {
+    color: red;
+    border-color: red;
+    transition: 0.3s ease;
+}
