@@ -1,14 +1,13 @@
-import { Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 
 const Confirmation = ({ orderInfo, orderError }) => {
   if (orderError) {
     return (
       <div className="confirmation">
-        <Typography variant="h5">Error: {orderError}</Typography>
-        <Button component={Link} variant="outlined" type="button" to="/">
-          Back to home
-        </Button>
+        <p>Error: {orderError}</p>
+        <Link to="/">
+          Back to Home
+        </Link>
       </div>
     );
   }
@@ -17,9 +16,13 @@ const Confirmation = ({ orderInfo, orderError }) => {
       <p>
         Thank you for your purchase!
       </p>
-      <Button component={Link} variant="contained" type="button" to="/">
+      <Link to="/shop">
         Continue shopping
-      </Button>
+      </Link>
+      &nbsp; &nbsp; &nbsp;
+      <Link to="/">
+          Back to Home
+        </Link>
     </div>
   );
 };

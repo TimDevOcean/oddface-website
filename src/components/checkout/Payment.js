@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import React from 'react';
 import PaystackPop from '@paystack/inline-js';
 
 const Payment = ({
@@ -8,9 +8,7 @@ const Payment = ({
     handleNextStep,
     handleCheckout
   }) => {
-
-    const [psReference, setPsReference] = useState("");
-    
+  
 
     const sanitizedLineItems = (lineItems) => {
         return lineItems.reduce((data, lineItem) => {
@@ -31,12 +29,14 @@ const Payment = ({
 
     const paystackPay = (e) => {
         e.preventDefault()
-        console.log(checkoutData)
+        console.log(checkoutData);
+        const orderSubTotal =  checkoutData.live.subtotal.raw + user.shippingOption.price
+        const totalAmount =  orderSubTotal * 100;
         
         const paystack = new PaystackPop();
         paystack.newTransaction({
             key: "pk_test_0e824463d20818c6550d20220c1cffb88aac11e6",
-            amount: checkoutData.live.subtotal.raw * 100,
+            amount: totalAmount,
             firstname: user.firstName,
             lastname: user.lastName,
             email: user.email,
@@ -51,7 +51,7 @@ const Payment = ({
                       },
                     },
                     shipping: {
-                      name: "stander",
+                      name: user.firstName + " " + user.lastName,
                       street: user.address,
                       town_city: user.city,
                       county_state: '' + user.shippingSubdivision.code  + '',
@@ -68,7 +68,7 @@ const Payment = ({
                   };
                   
 
-                let message = `Successfull Reference ${transaction.reference}`
+                // let message = `Successfull Reference ${transaction.reference}`
                 console.log(paystack);
                 console.log(orderData);
                 handleCheckout(checkoutData.id, orderData);

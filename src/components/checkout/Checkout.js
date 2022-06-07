@@ -7,7 +7,7 @@ import {
   Container,
   CircularProgress,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import commerce from "../../lib/commerce";
 import { renderRelatedComponent } from "./helpers";
 import "./style.css";
@@ -161,13 +161,16 @@ const Checkout = ({ cart, orderInfo, orderError, handleCheckout }) => {
           region: stateProvince,
         }
       );
-        
+
+      const optionId = options[0].id;
+      const optionPrice = options[0].price.raw;
+      const optionName = options[0].description;
+
      setUser({
         ...user,
         shippingOptions: options,
-        shippingOption: { id: options[0].id },
+        shippingOption: { id: optionId, price: optionPrice, name: optionName },
       });
-      console.log(options);
     };
 
     if (
@@ -187,6 +190,21 @@ const Checkout = ({ cart, orderInfo, orderError, handleCheckout }) => {
     user.shippingSubdivision,
     previousShippingSubdivision,
   ]);
+
+  if (!checkoutData.live) {
+    return (
+      <div className="checkout confirmation">
+        <Container>
+          <Paper className="paper" elevation={3}>
+            <p>You have no items in your cart, start adding some.</p>
+            <Link to="/shop">
+              Shop
+            </Link>
+          </Paper>
+        </Container>
+      </div>
+    );
+  }
 
   if (
     !user.shippingSubdivisions.length ||
