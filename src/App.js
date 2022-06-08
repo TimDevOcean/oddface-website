@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Checkout from './components/checkout/Checkout';
 import Home from './components/home/Home';
+import ProductView from './components/product/ProductView';
 
 
 
@@ -106,6 +107,7 @@ const App = () => {
   
     <Routes>
       <Route path="/" element={<Home />} />
+
       <Route path="/shop" element={
         <>
         <Header title="Shop" />
@@ -117,6 +119,16 @@ const App = () => {
         </div>
         </> }
       />
+
+      <Route path="/product-view/:id" element={
+        <>
+        <Header title="Product" />
+        <div className='app-container'>
+          <ProductView addToCart={handleAddToCart}/>
+        </div>
+        </> }
+      />
+
       <Route path="/checkout" element={
         <>
         <Header title="Checkout" />

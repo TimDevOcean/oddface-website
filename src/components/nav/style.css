@@ -76,6 +76,10 @@
     border: none !important;
 }
 
+.menu a:hover {
+    font-weight: 600;
+}
+
 .menu ul {
     list-style-type: none;
     margin: 0;

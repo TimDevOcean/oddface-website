@@ -191,15 +191,17 @@ const Checkout = ({ cart, orderInfo, orderError, handleCheckout }) => {
     previousShippingSubdivision,
   ]);
 
-  if (!checkoutData.live) {
+  if (cart.total_unique_items < 1) {
     return (
       <div className="checkout confirmation">
         <Container>
           <Paper className="paper" elevation={3}>
             <p>You have no items in your cart, start adding some.</p>
-            <Link to="/shop">
-              Shop
-            </Link>
+            <div>
+              <Link to="/shop">
+              Go to Shop
+              </Link>
+            </div>
           </Paper>
         </Container>
       </div>

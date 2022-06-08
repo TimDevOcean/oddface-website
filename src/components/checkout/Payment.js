@@ -27,11 +27,15 @@ const Payment = ({
         }, {});
       };
 
+    const orderSubTotal =  checkoutData.live.subtotal.raw + user.shippingOption.price
+    const totalAmount =  orderSubTotal * 100;
+    const currency = checkoutData.live.currency.symbol;
+
+
+
     const paystackPay = (e) => {
         e.preventDefault()
         console.log(checkoutData);
-        const orderSubTotal =  checkoutData.live.subtotal.raw + user.shippingOption.price
-        const totalAmount =  orderSubTotal * 100;
         
         const paystack = new PaystackPop();
         paystack.newTransaction({
@@ -83,17 +87,17 @@ const Payment = ({
 
 
     return (
-        <>
-             <button onClick={paystackPay}>
-                  Pay {checkoutData.live.subtotal.formatted_with_symbol}
-            </button>
-
+        <div className='actions'>
             <button
                   onClick={(e) => handleBackStep(e, "order-details")}
                 >
                   Back
             </button>
-        </>
+
+            <button onClick={paystackPay}>
+                  Pay {currency}{orderSubTotal.toFixed(2)}
+            </button>
+        </div>
     )
 };
 

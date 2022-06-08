@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 const Confirmation = ({ orderInfo, orderError }) => {
   if (orderError) {
@@ -16,13 +17,15 @@ const Confirmation = ({ orderInfo, orderError }) => {
       <p>
         Thank you for your purchase!
       </p>
-      <Link to="/shop">
-        Continue shopping
-      </Link>
-      &nbsp; &nbsp; &nbsp;
-      <Link to="/">
-          Back to Home
+      <div><CheckCircleOutlineIcon color="success" fontSize="inherit" className="success-icon"/></div>
+      <div className="actions">
+        <Link to="/">
+            Back to Home
         </Link>
+        <Link to="/shop">
+          Continue shopping
+        </Link>
+      </div>
     </div>
   );
 };

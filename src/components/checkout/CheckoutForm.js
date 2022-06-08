@@ -20,6 +20,7 @@ const CheckoutForm = ({
     <Grid container spacing={4}>
       <Grid item xs={12} sm={6}>
         <TextField
+          variant="standard"
           required
           fullWidth
           id="first-name"
@@ -31,6 +32,7 @@ const CheckoutForm = ({
       </Grid>
       <Grid item xs={12} sm={6}>
         <TextField
+          variant="standard"
           required
           fullWidth
           id="last-name"
@@ -42,6 +44,7 @@ const CheckoutForm = ({
       </Grid>
       <Grid item xs={12} sm={6}>
         <TextField
+          variant="standard"
           required
           fullWidth
           id="email"
@@ -54,6 +57,7 @@ const CheckoutForm = ({
       </Grid>
       <Grid item xs={12} sm={6}>
         <TextField
+          variant="standard"        
           required
           fullWidth
           id="address"
@@ -65,6 +69,7 @@ const CheckoutForm = ({
       </Grid>
       <Grid item xs={12} sm={6}>
         <TextField
+          variant="standard"
           required
           fullWidth
           id="city"
@@ -76,6 +81,7 @@ const CheckoutForm = ({
       </Grid>
       <Grid item xs={12} sm={6}>
         <TextField
+          variant="standard"
           required
           fullWidth
           id="post-code"
@@ -92,6 +98,7 @@ const CheckoutForm = ({
             Shipping Country
           </InputLabel>
           <Select
+            variant="standard"
             required
             name="shippingCountry"
             id="shipping-country-select"
@@ -114,6 +121,7 @@ const CheckoutForm = ({
             Shipping Subdivision
           </InputLabel>
           <Select
+            variant="standard"
             required
             name="shippingSubdivision"
             id="shipping-subdivision-select"
@@ -136,6 +144,7 @@ const CheckoutForm = ({
             Shipping Options
           </InputLabel>
           <Select
+            variant="standard"
             required
             name="shippingOptions"
             value={user.shippingOption.id}

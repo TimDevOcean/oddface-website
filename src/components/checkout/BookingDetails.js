@@ -6,7 +6,15 @@ import {
   ListItemText,
 } from "@mui/material";
 
-const BookingDetails = ({ checkoutData, handleBackStep, handleNextStep }) => (
+const BookingDetails = ({ user, checkoutData, handleBackStep, handleNextStep }) => {
+
+  const shippingCostRaw = user.shippingOption.price;
+  const shippingCost = shippingCostRaw.toFixed(2);
+  const currency = checkoutData.live.currency.symbol;
+  const totalRaw = checkoutData.live.subtotal.raw + shippingCostRaw;
+  const totalPrice = totalRaw.toFixed(2);
+  
+  return (
   <>
     <List>
       {checkoutData.live.line_items.map((item) => (
@@ -21,9 +29,16 @@ const BookingDetails = ({ checkoutData, handleBackStep, handleNextStep }) => (
         </ListItem>
       ))}
       <ListItem>
-        <ListItemText primary="Total price" />
+        <ListItemText primary="Shipping Cost" />
         <Typography variant="body2">
-          {checkoutData.live.subtotal.formatted_with_code}
+          {`${currency}${shippingCost}`}
+        </Typography>
+      </ListItem>
+      <ListItem>
+        <ListItemText primary="Total Price" />
+        <Typography variant="body2">
+          {/* {checkoutData.live.subtotal.formatted_with_code} */}
+          {`${currency}${totalPrice}`}
         </Typography>
       </ListItem>
     </List>
@@ -41,6 +56,7 @@ const BookingDetails = ({ checkoutData, handleBackStep, handleNextStep }) => (
       </button>
     </div>
   </>
-);
+  )
+};
 
 export default BookingDetails;

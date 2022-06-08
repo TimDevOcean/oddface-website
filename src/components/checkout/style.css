@@ -4,9 +4,29 @@
     padding-bottom: 15px;
   }
 
+.stepper .MuiSvgIcon-root {
+  color: #000 !important;
+}
+
+.stepper .Mui-active {
+  color: #b00000 !important;
+}
+
 input, label, span, select, button, div {
     font-family: 'Poppins' !important;
   }
+
+input, select {
+  box-shadow: none !important;
+  outline: none !important;
+  border: 0 solid #fff !important;
+  border-bottom: solid 1px #000 !important;
+}
+
+input.Mui-focused {
+  color: #b00000 !important;
+  border-bottom: solid 1px #b00000 !important;
+}
   
   .checkout .paper {
     max-width: 700px;
@@ -81,6 +101,18 @@ input, label, span, select, button, div {
 }
 
 .checkout .confirmation p {
+  text-align: center;
   font-size: 20px;
   padding-bottom: 25px;
+}
+
+.confirmation > div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.confirmation .success-icon {
+  text-align: center !important;
+  font-size: 50px;
 }

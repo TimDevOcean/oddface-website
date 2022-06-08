@@ -1,7 +1,26 @@
+.product a {
+    text-decoration: none;
+    color: #202020;
+}
+
+.product a:hover {
+    background: none;
+}
+
 .product-card {
     border-radius: 20px !important;
     border: solid 0px #dddddd !important;
     box-shadow: rgba(0, 0, 0, 0) 0px 4px 12px !important;
+    cursor: pointer;
+}
+
+.product-image {
+    transition: 0.3s ease;
+}
+
+.product-image:hover {
+    transform: scale(1.05);
+    transition: 0.3s ease;
 }
 
 .product-info {
