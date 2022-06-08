@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import commerce from "../../lib/commerce";
 import Loader from "../loader/Loader";
-import { Grid, Container, Typography, Button } from '@mui/material';
+import { Grid, Container } from '@mui/material';
 import "./style.css";
 
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
@@ -16,19 +16,24 @@ const ProductView = ({ addToCart }) => {
     const [product, setProduct] = useState({});
     const [quantity, setQuantity] = useState(1);
     const [loading, setLoading] = useState(true);
+    const [originalPrice, setOriginalPrice] = useState(0);
   
     const fetchProduct = async (id) => {
+
       const response = await commerce.products.retrieve(id);
-      console.log(response.image.url);
-      const { name, price, image, quantity, description } = response;
-   
+      const { name, price, assets, image, variant_groups, quantity, description } = response;
+      console.log(response);
+
+      setOriginalPrice(price.raw);
       setProduct({
         id,
         name,
         quantity,
+        variant_groups,
         description,
+        assets,
         src: image.url,
-        price: price.formatted_with_symbol,
+        price: price.formatted_with_code,
       });
     };
   
@@ -46,71 +51,114 @@ const ProductView = ({ addToCart }) => {
       }
     };
   
+    const priceCalculator = (optionPrice) => {
+        if (optionPrice === originalPrice) {
+          return product.price;
+        }
+    
+        const priceArray = product.price.split(" ");
+        const total = originalPrice + optionPrice;
+        return `${total} ${priceArray[1]}`;
+      };
+    
+      const updateProduct = (optionPrice, src, { id, variantId }) => {
+        setProduct({
+          ...product,
+          price: priceCalculator(optionPrice),
+          src,
+          option: { variantId: id },
+        });
+        console.log(id)
+      };
+    
+      const getImageUrl = (assetId) => {
+        const relatedAsset = product.assets.find((pro) => pro.id === assetId);
+        return relatedAsset?.url || "";
+      };
 
     return (
         <Container className='product-view'>
             <Grid container spacing={4}>
-                <Grid item xs={12} md={8} className="image-wrapper">
-                <img
+                <Grid item xs={12} md={6}>
+                <img className="product-view-img"
                     onLoad={() => {
                     setLoading(false);
                     }}
                     src={product.src}
                     alt={product.name}
                 />
+                {loading && <Loader />}
+
+                {product.variant_groups?.length ? (
+                <h4>
+                Select variants.
+                </h4>
+                ) : null}
+                <div className="variants colors">
+                    {product.variant_groups?.length
+                    ? product.variant_groups?.map((group) => (
+                      group.options.map((option) => (
+                        
+                        <>
+                        <Grid key={option.id} container>
+                          <Grid xs={2} md={2} item key={option.id}>
+                            {option.name}
+                          </Grid>
+                        </Grid>
+                        </>
+                  
+                        )
+                      )
+                    ))
+                    : null}
+                </div>
+
                 </Grid>
-                <Grid item xs={12} md={4} className="text">
-                <Typography variant="h2">{product.name}</Typography>
-                <Typography
-                    variant="p"
+                <Grid item xs={12} md={6}>
+                <span className="product-view-title">{product.name}</span>
+                <p className="product-description"
                     dangerouslySetInnerHTML={createMarkup(product.description)}
                 />
-                <Typography variant="h3">Price: {product.price}</Typography>
-                <Grid container spacing={4}>
-                    <Grid item xs={12}>
-                    <Button
-                        size="small"
-                        variant="contained"
-                        className="increase-product-quantity"
-                        onClick={() => {
-                        handleQuantity("increase");
-                        }}
-                    >
-                        +
-                    </Button>
-                    </Grid>
-                    <Grid item xs={12}>
-                    <Typography className="quantity" variant="h3">
-                        Quantity: {quantity}
-                    </Typography>
-                    </Grid>
-                    <Grid item xs={12}>
-                    <Button
-                        size="small"
-                        color="secondary"
-                        variant="contained"
+                <p className="product-view-price">{product.price}</p>
+                <Grid container className="product-view-actions" spacing={4}>
+                    <Grid item xs={12} md={1.5}>
+                    <button
+                        className="product-view-qty-btn"
                         onClick={() => {
                         handleQuantity("decrease");
                         }}
                     >
                         -
-                    </Button>
+                    </button>
                     </Grid>
-                    <Grid item xs={12}>
-                    <Button
-                        size="large"
-                        className="custom-button"
+                    <Grid item xs={12} md={1}>
+                    <p className="product-view-qty">
+                        {quantity}
+                    </p>
+                    </Grid>
+                    <Grid item xs={12} md={1.5}>
+                    <button
+                        className="product-view-qty-btn"
                         onClick={() => {
-                        addToCart(product.id, quantity);
+                        handleQuantity("increase");
                         }}
                     >
-                        <ShoppingBagOutlinedIcon />
-                    </Button>
+                        +
+                    </button>
+                    </Grid>
+                    <Grid item xs={12}>
+                    <button
+                        className="product-view-cart-btn"
+                        onClick={() => {
+                        addToCart(product.id, quantity, product.option);
+                        }}
+                    >
+                        <span>Add to cart</span> <ShoppingBagOutlinedIcon className="bag-icon"/>
+                    </button>
                     </Grid>
                 </Grid>
                 </Grid>
             </Grid>
-            {loading && <Loader />}
         </Container>
     );
 };

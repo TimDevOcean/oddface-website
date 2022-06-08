@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import commerce from './lib/commerce';
-import ProductsList from './components/product/ProductsList';
 import NavBar from './components/nav/NavBar';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Checkout from './components/checkout/Checkout';
 import Home from './components/home/Home';
 import ProductView from './components/product/ProductView';
-
+import Shop from './components/shop/Shop';
+import Loader from "./components/loader/Loader";
 
 
 
 const App = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState('');
   const [cart, setCart] = useState({});
   const [orderInfo, setOrderInfo] = useState({});
   const [orderError, setOrderError] = useState("");
@@ -25,8 +25,8 @@ const App = () => {
     });
   }
 
-  const handleAddToCart = (productId, quantity) => {
-    commerce.cart.add(productId, quantity).then((item) => {
+  const handleAddToCart = (productId, quantity, option = {}) => {
+    commerce.cart.add(productId, quantity, {...option}).then((item) => {
       setCart(item.cart);
     }).catch((error) => {
       console.error('There was an error adding the item to the cart', error);
@@ -91,7 +91,6 @@ const App = () => {
   useEffect(() => {
     fetchProducts();
     fetchCart();
-    console.log(commerce);
   }, []);
 
   return (
@@ -112,12 +111,17 @@ const App = () => {
         <>
         <Header title="Shop" />
         <div className='app-container'>
-          <ProductsList 
+
+        {products === '' ? 
+          <Loader /> :
+          <Shop 
             products={products}
             onAddToCart={handleAddToCart}
           />
+        }
         </div>
-        </> }
+        </> 
+        }
       />
 
       <Route path="/product-view/:id" element={

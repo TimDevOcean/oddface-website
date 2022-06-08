@@ -23,9 +23,12 @@ input, select {
   border-bottom: solid 1px #000 !important;
 }
 
-input.Mui-focused {
+label.Mui-focused {
   color: #b00000 !important;
-  border-bottom: solid 1px #b00000 !important;
+}
+
+.MuiInput-root:after {
+  border-bottom: solid 2px #b00000 !important;
 }
   
   .checkout .paper {
@@ -46,6 +49,7 @@ input.Mui-focused {
   .checkout .paper .actions.payment-actions {
     margin-top: 25px;
   }
+  
   .checkout .paper .actions {
     margin-top: 15px;
     display: flex;
@@ -63,9 +67,7 @@ input.Mui-focused {
   }
   
   .products-spinner {
-    display: flex;
-    justify-content: center;
-    margin: 40px 0;
+    color: #b00000;
   }
   
 

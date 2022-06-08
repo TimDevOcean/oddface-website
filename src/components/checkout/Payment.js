@@ -35,7 +35,7 @@ const Payment = ({
 
     const paystackPay = (e) => {
         e.preventDefault()
-        console.log(checkoutData);
+        
         
         const paystack = new PaystackPop();
         paystack.newTransaction({
@@ -72,8 +72,6 @@ const Payment = ({
                   };
                   
 
-                // let message = `Successfull Reference ${transaction.reference}`
-                console.log(paystack);
                 console.log(orderData);
                 handleCheckout(checkoutData.id, orderData);
                 handleNextStep(e, "confirmation");

@@ -49,7 +49,7 @@ export const renderRelatedComponent = ({
         />
       );
     case "confirmation":
-      return <Confirmation orderInfo={orderInfo} orderError={orderError} />;
+      return <Confirmation user={user} orderInfo={orderInfo} orderError={orderError} />;
     default:
       return null;
   }

@@ -37,17 +37,6 @@
     display: flex;
 }
 
-.cart-item-details-qty button {
-    padding-top: 0px;
-    color: #202020;
-    background: #fff;
-}
-
-.cart-item-details-qty button:hover {
-    color: #fff;
-    background-color: #202020;
-}
-
 .cart-item-details-price {
     padding-top: 10px;
 }
@@ -60,6 +49,11 @@
     background: #fff;
     border-radius: 100%;
     border: 1px solid #202020;
+}
+
+.cart-item-details-qty button:hover {
+    color: #fff;
+    background-color: #202020;
 }
 
 button.cart-item-remove {

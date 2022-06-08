@@ -5,12 +5,13 @@ import {
   Stepper,
   StepLabel,
   Container,
-  CircularProgress,
+  LinearProgress,
 } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import commerce from "../../lib/commerce";
 import { renderRelatedComponent } from "./helpers";
 import "./style.css";
+
 
 const steps = ["order-address", "order-details", "order-payment"];
 
@@ -47,7 +48,6 @@ const Checkout = ({ cart, orderInfo, orderError, handleCheckout }) => {
   const previousShippingSubdivision = usePreviousState(
     user.shippingSubdivision
   );
-
   const history = useNavigate();
 
   const handleSubmit = (e) => {
@@ -71,7 +71,9 @@ const Checkout = ({ cart, orderInfo, orderError, handleCheckout }) => {
   };
 
   const handleSelectChange = (e, state) => {
+    e.preventDefault();
     const { name, value } = e.target;
+    console.log(e.target);
     if (state === "shippingOptions") {
       setUser({
         ...user,
@@ -161,7 +163,6 @@ const Checkout = ({ cart, orderInfo, orderError, handleCheckout }) => {
           region: stateProvince,
         }
       );
-
       const optionId = options[0].id;
       const optionPrice = options[0].price.raw;
       const optionName = options[0].description;
@@ -218,8 +219,8 @@ const Checkout = ({ cart, orderInfo, orderError, handleCheckout }) => {
       <div className="checkout">
         <Container>
           <Paper className="paper" elevation={3}>
-            <div className="products-spinner">
-              <CircularProgress />
+            <div className="product-spinner">
+            <LinearProgress sx={{ color: '#b00000' }} color="inherit" />
             </div>
           </Paper>
         </Container>

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
-const Confirmation = ({ orderInfo, orderError }) => {
+const Confirmation = ({ user, orderInfo, orderError }) => {
   if (orderError) {
     return (
       <div className="confirmation">
@@ -15,7 +15,7 @@ const Confirmation = ({ orderInfo, orderError }) => {
   return (
     <div className="confirmation">
       <p>
-        Thank you for your purchase!
+        Thanks for your purchase {user.firstName}!
       </p>
       <div><CheckCircleOutlineIcon color="success" fontSize="inherit" className="success-icon"/></div>
       <div className="actions">

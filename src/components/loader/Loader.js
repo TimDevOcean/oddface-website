@@ -1,10 +1,16 @@
-import { CircularProgress } from "@mui/material";
+import PuffLoader from "react-spinners/PuffLoader";
 import "./style.css";
 
-const Loader = () => (
-  <div className="spinner">
-    <CircularProgress />
-  </div>
-);
+const Loader = () => {
+
+  // const [loading, setLoading] = useState(true);
+  // const [color, setColor] = useState("#b00000");
+
+  return (
+    <div className="loader">
+      <PuffLoader  size={80} /> 
+    </div>
+  );
+}
 
 export default Loader;
