@@ -160,12 +160,14 @@ const App = () => {
         <>
         <Header title="Checkout" />
         <div className='app-container'>
+        <main>
           <Checkout 
               orderInfo={orderInfo}
               orderError={orderError}
               cart={cart}
               handleCheckout={handleCheckout}
           />
+        </main>
         </div>
         </> }
       />
