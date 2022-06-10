@@ -8,8 +8,9 @@ import Home from './components/home/Home';
 import ProductView from './components/product/ProductView';
 import Shop from './components/shop/Shop';
 import Loader from "./components/loader/Loader";
-
-
+import Footer from "./components/Footer";
+import "./App.css";
+import CartView from './components/cart/CartView';
 
 const App = () => {
   const [products, setProducts] = useState('');
@@ -26,7 +27,7 @@ const App = () => {
   }
 
   const handleAddToCart = (productId, quantity, option = {}) => {
-    commerce.cart.add(productId, quantity, {...option}).then((item) => {
+    commerce.cart.add(productId, quantity, {...option,}).then((item) => {
       setCart(item.cart);
     }).catch((error) => {
       console.error('There was an error adding the item to the cart', error);
@@ -105,13 +106,18 @@ const App = () => {
     </div>
   
     <Routes>
-      <Route path="/" element={<Home />} />
-
+      
+      <Route path="/" element={
+        <main>
+        <Home />
+        </main>
+      } />
+    
       <Route path="/shop" element={
         <>
         <Header title="Shop" />
         <div className='app-container'>
-
+        <main>
         {products === '' ? 
           <Loader /> :
           <Shop 
@@ -119,6 +125,7 @@ const App = () => {
             onAddToCart={handleAddToCart}
           />
         }
+        </main>
         </div>
         </> 
         }
@@ -130,6 +137,22 @@ const App = () => {
         <div className='app-container'>
           <ProductView addToCart={handleAddToCart}/>
         </div>
+        </> }
+      />
+
+      <Route path="/cart-view" element={
+        <>
+        <Header title="Your Cart" />
+        <main>
+        <div className='app-container'>
+          <CartView
+            cart={cart}
+            onUpdateCartQty={handleUpdateCartQty}
+            onRemoveFromCart={handleRemoveFromCart}
+            onEmptyCart={handleEmptyCart}
+          />
+        </div>
+        </main>
         </> }
       />
 
@@ -147,6 +170,7 @@ const App = () => {
         </> }
       />
     </Routes>
+    <Footer />
     </div>
   );
   

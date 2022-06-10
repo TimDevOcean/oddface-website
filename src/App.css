@@ -1,0 +1,48 @@
+.app-container {
+    width: 1050px;
+    margin: auto;
+}
+
+main {
+    min-height: 200px;
+}
+  
+.page-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+    background-image: url("https://oddfaceforever.com/wp-content/uploads/2019/08/S1-2-1.jpg");
+    background-color: #f4f4f4;
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 50px;
+    padding-top: 50px;
+}
+
+
+/* Footer styles*/
+.footer {
+    margin-top: 50px;
+    color: #808080;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    background: #f4f4f4;
+}
+
+.footer hr {
+    margin: 15px 0;
+    border: none;
+    border-top: 1px solid #cccccc;
+    box-shadow: none;
+    outline: none;
+    border-radius: none;
+    width: 100% !important;
+}
+
+.footer-bottom {
+    border: none;
+}

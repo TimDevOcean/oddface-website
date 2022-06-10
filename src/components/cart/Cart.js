@@ -46,6 +46,7 @@ const Cart = ({ cart, onRemoveFromCart, onEmptyCart, onUpdateCartQty }) => {
     <div className="cart">
       { renderEmptyMessage() }
       { renderItems() }
+      <Link to="/cart-view">View Cart</Link>
       <div className="cart-footer">
       { renderTotal() }
         <button className="cart-btn-empty" onClick={handleEmptyCart}>Clear Cart</button>

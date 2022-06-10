@@ -66,9 +66,8 @@ const ProductView = ({ addToCart }) => {
           ...product,
           price: priceCalculator(optionPrice),
           src,
-          option: { variantId: id },
+          option: { [variantId]: id },
         });
-        console.log(id)
       };
     
       const getImageUrl = (assetId) => {
@@ -89,30 +88,6 @@ const ProductView = ({ addToCart }) => {
                 />
                 {loading && <Loader />}
 
-                {product.variant_groups?.length ? (
-                <h4>
-                Select variants.
-                </h4>
-                ) : null}
-                <div className="variants colors">
-                    {product.variant_groups?.length
-                    ? product.variant_groups?.map((group) => (
-                      group.options.map((option) => (
-                        
-                        <>
-                        <Grid key={option.id} container>
-                          <Grid xs={2} md={2} item key={option.id}>
-                            {option.name}
-                          </Grid>
-                        </Grid>
-                        </>
-                  
-                        )
-                      )
-                    ))
-                    : null}
-                </div>
-
                 </Grid>
                 <Grid item xs={12} md={6}>
                 <span className="product-view-title">{product.name}</span>
@@ -120,6 +95,30 @@ const ProductView = ({ addToCart }) => {
                     dangerouslySetInnerHTML={createMarkup(product.description)}
                 />
                 <p className="product-view-price">{product.price}</p>
+
+                {product.variant_groups?.length ? (
+                  <h4>
+                  Select variants.
+                  </h4>
+                ) : null}
+                <div className="variants colors">
+                  {product.variant_groups?.length
+                    ? product.variant_groups[0].options?.map((color) => (
+                        <button
+                          key={color.id}
+                          src={getImageUrl(color.assets[0])}
+                          alt={color.name}
+                          onClick={() =>
+                            updateProduct(color.price.raw, getImageUrl(color.assets[0]), {
+                              id: color.id,
+                              variantId: product.variant_groups[0].id,
+                            })
+                          }
+                        >{color.name}</button>
+                      ))
+                    : null}
+                </div>
+
                 <Grid container className="product-view-actions" spacing={4}>
                     <Grid item xs={12} md={1.5}>
                     <button

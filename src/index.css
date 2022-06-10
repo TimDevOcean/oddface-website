@@ -22,24 +22,6 @@ button {
   transition: 0.3s ease;
 }
 
-.app-container {
-  max-width: 1050px;
-  margin: auto;
-}
-
-.page-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 350px;
-  background-image: url("https://oddfaceforever.com/wp-content/uploads/2019/08/S1-2-1.jpg");
-  background-color: #f4f4f4;
-  background-position: center;
-  background-size: cover;
-  margin-bottom: 50px;
-  padding-top: 50px;
-}
-
 
 /* scrollbar width */
 ::-webkit-scrollbar {
