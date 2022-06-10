@@ -39,7 +39,7 @@ const Payment = ({
         
         const paystack = new PaystackPop();
         paystack.newTransaction({
-            key: "pk_test_0e824463d20818c6550d20220c1cffb88aac11e6",
+            key: process.env.REACT_APP_PAYSTACK_PUBLIC_KEY,
             amount: totalAmount,
             firstname: user.firstName,
             lastname: user.lastName,
@@ -77,7 +77,7 @@ const Payment = ({
                 handleNextStep(e, "confirmation");
             },
             onCancel(){
-                console.log("Transaction canceled.")
+                console.log("Transaction has been canceled.")
             }
         })
 
