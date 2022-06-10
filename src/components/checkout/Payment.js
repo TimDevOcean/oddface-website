@@ -77,7 +77,7 @@ const Payment = ({
                 handleNextStep(e, "confirmation");
             },
             onCancel(){
-                console.log("Transaction has been canceled.")
+                console.log("Transaction has been canceled")
             }
         })
 
