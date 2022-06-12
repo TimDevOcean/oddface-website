@@ -1,3 +1,11 @@
+.cart-loader {
+    width: 100px;
+    position: absolute;
+    margin: 0 auto;
+    margin-top: -55px;
+    cursor: pointer;
+}
+
 .nav-bar * {
     text-align: center;
 }

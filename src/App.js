@@ -13,18 +13,28 @@ import "./App.css";
 import CartView from './components/cart/CartView';
 
 const App = () => {
-  const [products, setProducts] = useState('');
+  const [categories, setCategories] = useState('');
   const [cart, setCart] = useState({});
   const [orderInfo, setOrderInfo] = useState({});
   const [orderError, setOrderError] = useState("");
 
-  const fetchProducts = () => {
-    commerce.products.list().then((products) => {
-      setProducts(products.data);
-    }).catch((error) => {
-      console.log('There was an error fetching the products', error)
-    });
-  }
+  const fetchProductsPerCategory = async () => {
+    const { data: products } = await commerce.products.list({ limit: 200 });
+    const { data: categories } = await commerce.categories.list();
+    const productsPerCategory = categories.reduce((acc, category) => {
+      return [
+        ...acc,
+        {
+          ...category,
+          productsData: products.filter((product) =>
+            product.categories.find((cat) => cat.id === category.id)
+          ),
+        },
+      ];
+    }, []);
+
+    setCategories(productsPerCategory);
+  };
 
   const handleAddToCart = (productId, quantity, option = {}) => {
     commerce.cart.add(productId, quantity, {...option,}).then((item) => {
@@ -90,7 +100,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    fetchProducts();
+    fetchProductsPerCategory();
     fetchCart();
   }, []);
 
@@ -118,10 +128,10 @@ const App = () => {
         <Header title="Shop" />
         <div className='app-container'>
         <main>
-        {products === '' ? 
+        {categories === '' ? 
           <Loader /> :
           <Shop 
-            products={products}
+            categories={categories}
             onAddToCart={handleAddToCart}
           />
         }

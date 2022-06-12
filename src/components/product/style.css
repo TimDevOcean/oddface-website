@@ -133,3 +133,19 @@ button.product-btn:hover {
     margin: 15px;
     padding: 10px;
 }
+
+/*Product category styles*/
+.product-list > div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.category-name {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 500;
+    text-align: center;
+    width: 200px;
+    margin: 0 auto;
+}
