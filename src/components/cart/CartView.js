@@ -13,7 +13,6 @@ import {
 
 const CartView = ({ cart, onRemoveFromCart, onEmptyCart, onUpdateCartQty }) => {
   
-console.log(cart);
   const handleEmptyCart = () => {
     onEmptyCart();
   }

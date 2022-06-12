@@ -11,12 +11,15 @@ import Loader from "./components/loader/Loader";
 import Footer from "./components/Footer";
 import "./App.css";
 import CartView from './components/cart/CartView';
+import { Grid } from '@mui/material';
 
 const App = () => {
   const [categories, setCategories] = useState('');
   const [cart, setCart] = useState({});
   const [orderInfo, setOrderInfo] = useState({});
   const [orderError, setOrderError] = useState("");
+  const [loading, setLoading] = useState(true);
+
 
   const fetchProductsPerCategory = async () => {
     const { data: products } = await commerce.products.list({ limit: 200 });
@@ -37,48 +40,64 @@ const App = () => {
   };
 
   const handleAddToCart = (productId, quantity, option = {}) => {
+    setLoading(true);
     commerce.cart.add(productId, quantity, {...option,}).then((item) => {
       setCart(item.cart);
+      setLoading(false);
     }).catch((error) => {
       console.error('There was an error adding the item to the cart', error);
     });
   }
 
   const fetchCart = () => {
+    setLoading(true);
     commerce.cart.retrieve().then((cart) => {
       setCart(cart);
+      if(!cart){
+        setLoading(true);
+      } else {        
+        setLoading(false);
+      }
     }).catch((error) => {
       console.log('There was an error fetching the cart', error);
     });
   }
 
   const handleRemoveFromCart = (lineItemId) => {
+    setLoading(true);
     commerce.cart.remove(lineItemId).then((resp) => {
       setCart(resp.cart);
+      setLoading(false);
     }).catch((error) => {
       console.error('There was an error removing the item from the cart', error);
     });
   }
 
   const handleUpdateCartQty = (lineItemId, quantity) => {
+    setLoading(true);
     commerce.cart.update(lineItemId, { quantity }).then((resp) => {
       setCart(resp.cart);
+      setLoading(false);
     }).catch((error) => {
       console.log('There was an error updating the cart items', error);
     });
   }
 
   const handleEmptyCart = () => {
+    setLoading(true);
     commerce.cart.empty().then((resp) => {
       setCart(resp.cart);
+      setLoading(false);
     }).catch((error) => {
       console.error('There was an error emptying the cart', error);
     });
   }
 
   const refreshCart = async () => {
+    setLoading(true);
     const newCart = await commerce.cart.refresh();
     setCart(newCart);
+    setLoading(false);
   };
 
   const handleCheckout = async (checkoutId, orderData) => {
@@ -106,14 +125,23 @@ const App = () => {
 
   return (
     <div className="app">
-    <div className=''>
+    <Grid container className='loader-container'>
+      <Grid container item md={1}>
+        <Grid item />
+      </Grid>
+      <Grid container item md={10}>
+        <Grid item />
+      </Grid>
+      <Grid container item md={1}>
+        <Grid item className="cart-loader">{loading && <Loader />}</Grid>
+      </Grid>
+    </Grid>
       <NavBar 
         cart={cart}
         onUpdateCartQty={handleUpdateCartQty}
         onRemoveFromCart={handleRemoveFromCart}
         onEmptyCart={handleEmptyCart}
       />
-    </div>
   
     <Routes>
       
