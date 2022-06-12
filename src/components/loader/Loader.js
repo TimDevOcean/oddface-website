@@ -8,7 +8,7 @@ const Loader = () => {
 
   return (
     <div className="loader">
-      <PuffLoader  size={80} /> 
+      <PuffLoader className="pulse"  size={80} /> 
     </div>
   );
 }

@@ -11,64 +11,114 @@ import Loader from "./components/loader/Loader";
 import Footer from "./components/Footer";
 import "./App.css";
 import CartView from './components/cart/CartView';
+import { Grid } from '@mui/material';
+import Alerter from './components/Alerter';
 
 const App = () => {
-  const [products, setProducts] = useState('');
+  const [categories, setCategories] = useState('');
   const [cart, setCart] = useState({});
   const [orderInfo, setOrderInfo] = useState({});
   const [orderError, setOrderError] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [alertType, setAlertType] = useState("success");
+  const [alertMessage, setAlertMessage] = useState("");
 
-  const fetchProducts = () => {
-    commerce.products.list().then((products) => {
-      setProducts(products.data);
-    }).catch((error) => {
-      console.log('There was an error fetching the products', error)
-    });
+  const showAlert = () => {
+    var element = document.getElementById("alerter");
+    element.classList.add("show");
   }
 
+  const handleAlert = (type, message) => {
+      setAlertType(type);
+      setAlertMessage(message);
+      showAlert();
+  }
+
+  const fetchProductsPerCategory = async () => {
+    const { data: products } = await commerce.products.list({ limit: 200 });
+    const { data: categories } = await commerce.categories.list();
+    const productsPerCategory = categories.reduce((acc, category) => {
+      return [
+        ...acc,
+        {
+          ...category,
+          productsData: products.filter((product) =>
+            product.categories.find((cat) => cat.id === category.id)
+          ),
+        },
+      ];
+    }, []);
+
+    setCategories(productsPerCategory);
+  };
+
   const handleAddToCart = (productId, quantity, option = {}) => {
+    setLoading(true);
     commerce.cart.add(productId, quantity, {...option,}).then((item) => {
       setCart(item.cart);
+      setLoading(false);
+      handleAlert("success", "Item added to cart successfully.");
     }).catch((error) => {
+      handleAlert("error", "There was an error adding the item to the cart");
       console.error('There was an error adding the item to the cart', error);
     });
   }
 
   const fetchCart = () => {
+    setLoading(true);
     commerce.cart.retrieve().then((cart) => {
       setCart(cart);
+      if(!cart){
+        setLoading(true);
+      } else {        
+        setLoading(false);
+      }
     }).catch((error) => {
       console.log('There was an error fetching the cart', error);
     });
   }
 
   const handleRemoveFromCart = (lineItemId) => {
+    setLoading(true);
     commerce.cart.remove(lineItemId).then((resp) => {
       setCart(resp.cart);
+      setLoading(false);
+      handleAlert("success", "Item removed from cart.");
     }).catch((error) => {
+      handleAlert("error", "There was an error removing the item from cart");
       console.error('There was an error removing the item from the cart', error);
     });
   }
 
   const handleUpdateCartQty = (lineItemId, quantity) => {
+    setLoading(true);
     commerce.cart.update(lineItemId, { quantity }).then((resp) => {
       setCart(resp.cart);
+      setLoading(false);
+      handleAlert("success", "Quantity updated.");
     }).catch((error) => {
+      handleAlert("error", "There was an error updating the cart");
       console.log('There was an error updating the cart items', error);
     });
   }
 
   const handleEmptyCart = () => {
+    setLoading(true);
     commerce.cart.empty().then((resp) => {
       setCart(resp.cart);
+      setLoading(false);
+      handleAlert("success", "Cart cleared successfully.");
     }).catch((error) => {
+      handleAlert("error", "There was an error clearing the cart");
       console.error('There was an error emptying the cart', error);
     });
   }
 
   const refreshCart = async () => {
+    setLoading(true);
     const newCart = await commerce.cart.refresh();
     setCart(newCart);
+    setLoading(false);
   };
 
   const handleCheckout = async (checkoutId, orderData) => {
@@ -90,20 +140,29 @@ const App = () => {
   };
 
   useEffect(() => {
-    fetchProducts();
+    fetchProductsPerCategory();
     fetchCart();
   }, []);
 
   return (
     <div className="app">
-    <div className=''>
+    <Grid container className='loader-container'>
+      <Grid container item md={1}>
+        <Grid item />
+      </Grid>
+      <Grid container item md={10}>
+        <Grid item />
+      </Grid>
+      <Grid container item md={1}>
+        <Grid item className="cart-loader">{loading && <Loader />}</Grid>
+      </Grid>
+    </Grid>
       <NavBar 
         cart={cart}
         onUpdateCartQty={handleUpdateCartQty}
         onRemoveFromCart={handleRemoveFromCart}
         onEmptyCart={handleEmptyCart}
       />
-    </div>
   
     <Routes>
       
@@ -116,17 +175,18 @@ const App = () => {
       <Route path="/shop" element={
         <>
         <Header title="Shop" />
-        <div className='app-container'>
         <main>
-        {products === '' ? 
-          <Loader /> :
-          <Shop 
-            products={products}
-            onAddToCart={handleAddToCart}
-          />
-        }
+          <div className='app-container'>
+            <Alerter type={alertType} message={alertMessage} />
+            {categories === '' ? 
+              <Loader /> :
+              <Shop 
+                categories={categories}
+                onAddToCart={handleAddToCart}
+              />
+            }
+          </div>
         </main>
-        </div>
         </> 
         }
       />
@@ -134,9 +194,12 @@ const App = () => {
       <Route path="/product-view/:id" element={
         <>
         <Header title="Product" />
-        <div className='app-container'>
-          <ProductView addToCart={handleAddToCart}/>
-        </div>
+        <main>
+          <div className='app-container'>
+            <Alerter type={alertType} message={alertMessage} />
+            <ProductView addToCart={handleAddToCart}/>
+          </div>
+        </main>
         </> }
       />
 
@@ -144,14 +207,15 @@ const App = () => {
         <>
         <Header title="Your Cart" />
         <main>
-        <div className='app-container'>
-          <CartView
-            cart={cart}
-            onUpdateCartQty={handleUpdateCartQty}
-            onRemoveFromCart={handleRemoveFromCart}
-            onEmptyCart={handleEmptyCart}
-          />
-        </div>
+          <div className='app-container'>
+            <Alerter type={alertType} message={alertMessage} />
+            <CartView
+              cart={cart}
+              onUpdateCartQty={handleUpdateCartQty}
+              onRemoveFromCart={handleRemoveFromCart}
+              onEmptyCart={handleEmptyCart}
+            />
+          </div>
         </main>
         </> }
       />
@@ -159,16 +223,17 @@ const App = () => {
       <Route path="/checkout" element={
         <>
         <Header title="Checkout" />
-        <div className='app-container'>
         <main>
-          <Checkout 
-              orderInfo={orderInfo}
-              orderError={orderError}
-              cart={cart}
-              handleCheckout={handleCheckout}
-          />
+          <div className='app-container'>
+            <Alerter type={alertType} message={alertMessage} />
+            <Checkout 
+                orderInfo={orderInfo}
+                orderError={orderError}
+                cart={cart}
+                handleCheckout={handleCheckout}
+            />
+          </div>
         </main>
-        </div>
         </> }
       />
     </Routes>

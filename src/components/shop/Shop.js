@@ -1,12 +1,12 @@
 import ProductsList from "../product/ProductsList";
 import "./style.css";
 
-const Shop = ({ products, onAddToCart }) => {
+const Shop = ({ categories, onAddToCart }) => {
 
   return (
     <div className="shop">
         <ProductsList 
-            products={products}
+            categories={categories}
             onAddToCart={onAddToCart}
         />
     </div>

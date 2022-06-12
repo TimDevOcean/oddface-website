@@ -1,0 +1,52 @@
+.filter-bar {
+  font-family: 'Poppins' !important;
+    margin-top: 50px;
+    padding: 20px;
+  }
+  
+.filter-bar .search-results {
+  margin-top: 10px;
+}
+
+  .filter-bar .root {
+    width: 70%;
+    margin: 0 auto;
+    padding: 10px 40px;
+    display: flex;
+    align-items: center;
+    border-radius: 50px !important;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    border: 1px solid #dadada;
+  }
+  
+  .input {
+    flex: 1;
+    margin-left: 10px;
+  }
+  
+  .filter-bar .MuiInput-underline {
+    padding-left: 8px;
+  }
+  
+  .filter-bar .MuiInput-underline:before,
+  .filter-bar .MuiInput-underline:after {
+    display: none;
+  }
+  
+  .result-message {
+    text-align: center;
+    margin: 0;
+    font-size: 20px;
+    padding-top: 20px;
+    color: #000000;
+  }
+
+  .filter-container {
+    width: 100% !important;
+    color: #fff;
+  }
+  
+  
+  .form-control fieldset {
+    font-family: 'Poppins' !important;
+  }
