@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import "./App.css";
 import CartView from './components/cart/CartView';
 import { Grid } from '@mui/material';
+import Alerter from './components/Alerter';
 
 const App = () => {
   const [categories, setCategories] = useState('');
@@ -19,7 +20,19 @@ const App = () => {
   const [orderInfo, setOrderInfo] = useState({});
   const [orderError, setOrderError] = useState("");
   const [loading, setLoading] = useState(true);
+  const [alertType, setAlertType] = useState("success");
+  const [alertMessage, setAlertMessage] = useState("");
 
+  const showAlert = () => {
+    var element = document.getElementById("alerter");
+    element.classList.add("show");
+  }
+
+  const handleAlert = (type, message) => {
+      setAlertType(type);
+      setAlertMessage(message);
+      showAlert();
+  }
 
   const fetchProductsPerCategory = async () => {
     const { data: products } = await commerce.products.list({ limit: 200 });
@@ -44,7 +57,9 @@ const App = () => {
     commerce.cart.add(productId, quantity, {...option,}).then((item) => {
       setCart(item.cart);
       setLoading(false);
+      handleAlert("success", "Item added to cart successfully.");
     }).catch((error) => {
+      handleAlert("error", "There was an error adding the item to the cart");
       console.error('There was an error adding the item to the cart', error);
     });
   }
@@ -68,7 +83,9 @@ const App = () => {
     commerce.cart.remove(lineItemId).then((resp) => {
       setCart(resp.cart);
       setLoading(false);
+      handleAlert("success", "Item removed from cart.");
     }).catch((error) => {
+      handleAlert("error", "There was an error removing the item from cart");
       console.error('There was an error removing the item from the cart', error);
     });
   }
@@ -78,7 +95,9 @@ const App = () => {
     commerce.cart.update(lineItemId, { quantity }).then((resp) => {
       setCart(resp.cart);
       setLoading(false);
+      handleAlert("success", "Quantity updated.");
     }).catch((error) => {
+      handleAlert("error", "There was an error updating the cart");
       console.log('There was an error updating the cart items', error);
     });
   }
@@ -88,7 +107,9 @@ const App = () => {
     commerce.cart.empty().then((resp) => {
       setCart(resp.cart);
       setLoading(false);
+      handleAlert("success", "Cart cleared successfully.");
     }).catch((error) => {
+      handleAlert("error", "There was an error clearing the cart");
       console.error('There was an error emptying the cart', error);
     });
   }
@@ -154,17 +175,18 @@ const App = () => {
       <Route path="/shop" element={
         <>
         <Header title="Shop" />
-        <div className='app-container'>
         <main>
-        {categories === '' ? 
-          <Loader /> :
-          <Shop 
-            categories={categories}
-            onAddToCart={handleAddToCart}
-          />
-        }
+          <div className='app-container'>
+            <Alerter type={alertType} message={alertMessage} />
+            {categories === '' ? 
+              <Loader /> :
+              <Shop 
+                categories={categories}
+                onAddToCart={handleAddToCart}
+              />
+            }
+          </div>
         </main>
-        </div>
         </> 
         }
       />
@@ -172,9 +194,12 @@ const App = () => {
       <Route path="/product-view/:id" element={
         <>
         <Header title="Product" />
-        <div className='app-container'>
-          <ProductView addToCart={handleAddToCart}/>
-        </div>
+        <main>
+          <div className='app-container'>
+            <Alerter type={alertType} message={alertMessage} />
+            <ProductView addToCart={handleAddToCart}/>
+          </div>
+        </main>
         </> }
       />
 
@@ -182,14 +207,15 @@ const App = () => {
         <>
         <Header title="Your Cart" />
         <main>
-        <div className='app-container'>
-          <CartView
-            cart={cart}
-            onUpdateCartQty={handleUpdateCartQty}
-            onRemoveFromCart={handleRemoveFromCart}
-            onEmptyCart={handleEmptyCart}
-          />
-        </div>
+          <div className='app-container'>
+            <Alerter type={alertType} message={alertMessage} />
+            <CartView
+              cart={cart}
+              onUpdateCartQty={handleUpdateCartQty}
+              onRemoveFromCart={handleRemoveFromCart}
+              onEmptyCart={handleEmptyCart}
+            />
+          </div>
         </main>
         </> }
       />
@@ -197,16 +223,17 @@ const App = () => {
       <Route path="/checkout" element={
         <>
         <Header title="Checkout" />
-        <div className='app-container'>
         <main>
-          <Checkout 
-              orderInfo={orderInfo}
-              orderError={orderError}
-              cart={cart}
-              handleCheckout={handleCheckout}
-          />
+          <div className='app-container'>
+            <Alerter type={alertType} message={alertMessage} />
+            <Checkout 
+                orderInfo={orderInfo}
+                orderError={orderError}
+                cart={cart}
+                handleCheckout={handleCheckout}
+            />
+          </div>
         </main>
-        </div>
         </> }
       />
     </Routes>

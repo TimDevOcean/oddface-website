@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import {
   Grid,
   Paper,
@@ -19,13 +19,13 @@ const FilterProduct = ({
   searchResult,
   setSearchResult,
 }) => {
-  const [loading, setLoading] = React.useState(false);
+  const [loading, setLoading] = useState(false);
   const defaultCategory = { id: 0, name: "All" };
-  const [keyword, setKeyword] = React.useState("");
-  const [resultMessage, setResultMessage] = React.useState("");
-  const [selectedCategory, setSelectedCategory] =
-    React.useState(defaultCategory);
+  const [keyword, setKeyword] = useState("");
+  const [resultMessage, setResultMessage] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState(defaultCategory);
     
+
 
   const handleInputChange = (event) => {
     if (!keyword || !event.target.value) {
@@ -61,11 +61,11 @@ const FilterProduct = ({
           ...categoryId,
         });
         if (!data) {
-          setResultMessage("No result match");
-          setSearchResult([]);
+            setResultMessage("Nothing found.");
+            setLoading(false);
+            setSearchResult([]);
           return;
         }
-        setLoading(false);
         setResultMessage("");
         setSearchResult(data);
       } catch (error) {
@@ -83,7 +83,8 @@ const FilterProduct = ({
           ...categoryId,
         });
         if (!data) {
-          setResultMessage("No result match");
+          setResultMessage("Nothing found.");
+          setLoading(false);
           setSearchResult([]);
           return;
         }
@@ -93,6 +94,7 @@ const FilterProduct = ({
         setSearchResult([]);
       }
     }
+    setLoading(false);
   };
 
   return (
@@ -114,7 +116,9 @@ const FilterProduct = ({
             <Search />
           </IconButton>
         </Paper>
-        <div style={{padding: 20}}>{loading && <Loader />}</div>
+        <div style={{padding: 20}}>
+            {loading && <Loader />}
+        </div>
         {resultMessage && <p className="result-message">{resultMessage}</p>}
         {searchResult.length && (
           <div className="search-results">

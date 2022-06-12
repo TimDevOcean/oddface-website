@@ -1,4 +1,20 @@
+#alerter {
+    display: none;
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 25px;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block !important;
+}
+
 .cart-loader > div {
+    margin-left: -10px !important;
     display: flex;
     align-items: center;
     justify-content: center;
