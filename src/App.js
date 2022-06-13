@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import commerce from './lib/commerce';
 import NavBar from './components/nav/NavBar';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import Header from './components/Header';
 import Checkout from './components/checkout/Checkout';
 import Home from './components/home/Home';
@@ -22,10 +22,12 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [alertType, setAlertType] = useState("success");
   const [alertMessage, setAlertMessage] = useState("");
+  const navigate = useNavigate();
 
   const showAlert = () => {
     var element = document.getElementById("alerter");
     element.classList.add("show");
+    setTimeout(()=>{element.classList.remove("show")}, 6000);
   }
 
   const handleAlert = (type, message) => {
@@ -196,7 +198,12 @@ const App = () => {
         <Header title="Product" />
         <main>
           <div className='app-container'>
-            <Alerter type={alertType} message={alertMessage} />
+            <Alerter 
+              type={alertType} 
+              message={alertMessage} 
+              btnText={"View Cart"}
+              onClick={()=>navigate("/cart-view", { replace: true })}
+            />
             <ProductView addToCart={handleAddToCart}/>
           </div>
         </main>

@@ -22,7 +22,6 @@ const ProductView = ({ addToCart }) => {
 
       const response = await commerce.products.retrieve(id);
       const { name, price, assets, image, variant_groups, quantity, description } = response;
-      console.log(response);
 
       setOriginalPrice(price.raw);
       setProduct({

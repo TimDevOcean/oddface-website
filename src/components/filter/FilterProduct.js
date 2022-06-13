@@ -116,7 +116,7 @@ const FilterProduct = ({
             <Search />
           </IconButton>
         </Paper>
-        <div style={{padding: 20}}>
+        <div style={{padding: 10}}>
             {loading && <Loader />}
         </div>
         {resultMessage && <p className="result-message">{resultMessage}</p>}
