@@ -131,6 +131,7 @@ const App = () => {
       );
 
       setOrderInfo(incomingOrder);
+      console.log(incomingOrder);
 
       refreshCart();
     } catch (error) {

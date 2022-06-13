@@ -4,8 +4,6 @@ import Loader from "../loader/Loader";
 import { Grid, Container } from '@mui/material';
 import "./style.css";
 
-import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
-// import ShoppingBagSharpIcon from '@mui/icons-material/ShoppingBagSharp';
 
 const createMarkup = (text) => {
     return { __html: text };
@@ -67,6 +65,7 @@ const ProductView = ({ addToCart }) => {
           src,
           option: { [variantId]: id },
         });
+        console.log(product);
       };
     
       const getImageUrl = (assetId) => {
@@ -97,25 +96,40 @@ const ProductView = ({ addToCart }) => {
 
                 {product.variant_groups?.length ? (
                   <h4>
-                  Select variants.
+                  Select variants
                   </h4>
                 ) : null}
-                <div className="variants colors">
+                <div className="variants">
                   {product.variant_groups?.length
                     ? product.variant_groups[0].options?.map((color) => (
-                        <button
+                        <img className="colors"
                           key={color.id}
                           src={getImageUrl(color.assets[0])}
                           alt={color.name}
                           onClick={() =>
                             updateProduct(color.price.raw, getImageUrl(color.assets[0]), {
                               id: color.id,
-                              variantId: product.variant_groups[0].id,
+                              variantId: [product.variant_groups[0].id],
                             })
                           }
-                        >{color.name}</button>
+                        />
                       ))
                     : null}
+
+                    {product.variant_groups?.length
+                    ? product.variant_groups[1].options?.map((size) => (
+                        <button className="colors"
+                          key={size.id}
+                          onClick={() =>
+                            updateProduct(size.price.raw, getImageUrl(size.assets[0]), {
+                              id: size.id,
+                              variantId: [product.variant_groups[0].id, product.variant_groups[1].id]
+                            })
+                          }
+                        />
+                      ))
+                    : null}
+
                 </div>
 
                 <Grid container className="product-view-actions" spacing={4}>
@@ -151,7 +165,7 @@ const ProductView = ({ addToCart }) => {
                         addToCart(product.id, quantity, product.option);
                         }}
                     >
-                        <span>Add to cart</span> <ShoppingBagOutlinedIcon className="bag-icon"/>
+                        <span>Add to cart</span>
                     </button>
                     </Grid>
                 </Grid>
