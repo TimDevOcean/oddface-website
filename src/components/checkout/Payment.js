@@ -17,6 +17,8 @@ const Payment = ({
           if (lineItem.selected_options.length) {
             variantData = {
               [lineItem.selected_options[0].group_id]: lineItem.selected_options[0].option_id,
+              [lineItem.selected_options[1].group_id]: lineItem.selected_options[1].option_id,
+
             };
           }
           item[lineItem.id] = {

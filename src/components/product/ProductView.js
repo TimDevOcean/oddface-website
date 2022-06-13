@@ -20,7 +20,7 @@ const ProductView = ({ addToCart }) => {
 
       const response = await commerce.products.retrieve(id);
       const { name, price, assets, image, variant_groups, quantity, description } = response;
-
+console.log(response)
       setOriginalPrice(price.raw);
       setProduct({
         id,
@@ -65,8 +65,21 @@ const ProductView = ({ addToCart }) => {
           src,
           option: { [variantId]: id },
         });
-        console.log(product);
       };
+
+
+      const handleSelectChange = (e) => {
+        e.preventDefault();
+        const { name, value } = e.target; 
+        setProduct({
+          ...product,
+          option: {
+            ...product.option,
+            [name]: value
+          }
+      })  
+      console.log(product);  
+      }
     
       const getImageUrl = (assetId) => {
         const relatedAsset = product.assets.find((pro) => pro.id === assetId);
@@ -95,42 +108,33 @@ const ProductView = ({ addToCart }) => {
                 <p className="product-view-price">{product.price}</p>
 
                 {product.variant_groups?.length ? (
+
+                  <div className="variants" key={product.variant_groups.id}>
                   <h4>
                   Select variants
                   </h4>
-                ) : null}
-                <div className="variants">
-                  {product.variant_groups?.length
-                    ? product.variant_groups[0].options?.map((color) => (
-                        <img className="colors"
+                {
+                  <select onChange={(e) => handleSelectChange(e)} name={product.variant_groups[0].id} className="colors">
+                      {product.variant_groups[0].options?.map((color) => (
+                        <option value={color.id}
                           key={color.id}
-                          src={getImageUrl(color.assets[0])}
-                          alt={color.name}
-                          onClick={() =>
-                            updateProduct(color.price.raw, getImageUrl(color.assets[0]), {
-                              id: color.id,
-                              variantId: [product.variant_groups[0].id],
-                            })
-                          }
-                        />
+                        >{color.name}</option>
                       ))
-                    : null}
-
-                    {product.variant_groups?.length
-                    ? product.variant_groups[1].options?.map((size) => (
-                        <button className="colors"
+                      }
+                </select>
+                }{ 
+                  <select onChange={(e) => handleSelectChange(e)} name={product.variant_groups[1].id} className="sizes">
+                      {product.variant_groups[1].options?.map((size) => (
+                        <option value={size.id}
                           key={size.id}
-                          onClick={() =>
-                            updateProduct(size.price.raw, getImageUrl(size.assets[0]), {
-                              id: size.id,
-                              variantId: [product.variant_groups[0].id, product.variant_groups[1].id]
-                            })
-                          }
-                        />
+                        >{size.name}</option>
                       ))
-                    : null}
-
+                      }
+                </select>
+                }
                 </div>
+                ) : null
+                }
 
                 <Grid container className="product-view-actions" spacing={4}>
                     <Grid item xs={12} md={1.5}>
