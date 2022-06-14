@@ -4,6 +4,7 @@ import {
   ListItem,
   Typography,
   ListItemText,
+  Divider,
 } from "@mui/material";
 
 const BookingDetails = ({ user, checkoutData, handleBackStep, handleNextStep }) => {
@@ -13,6 +14,8 @@ const BookingDetails = ({ user, checkoutData, handleBackStep, handleNextStep }) 
   const currency = checkoutData.live.currency.symbol;
   const totalRaw = checkoutData.live.subtotal.raw + shippingCostRaw;
   const totalPrice = totalRaw.toFixed(2);
+
+  console.log(checkoutData);
   
   return (
   <>
@@ -21,13 +24,18 @@ const BookingDetails = ({ user, checkoutData, handleBackStep, handleNextStep }) 
         <ListItem key={item.id}>
           <ListItemText
             primary={item.name}
-            secondary={`Quantity: ${item.quantity}`}
+            secondary={`
+              ${item.quantity}
+              ${item.selected_options[0].option_name}
+              - ${item.selected_options[1].option_name}
+            `}
           />
           <Typography variant="body2">
             {item.line_total.formatted_with_symbol}
           </Typography>
         </ListItem>
       ))}
+      <Divider />
       <ListItem>
         <ListItemText primary="Shipping Cost" />
         <Typography variant="body2">
