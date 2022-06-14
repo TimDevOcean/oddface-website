@@ -142,6 +142,7 @@ button.cart-item-remove:hover {
     padding-right: 50px;
 }
 
+
 .cart-view h6 {
     font-weight: 400;
     text-transform: capitalize;
@@ -156,9 +157,23 @@ button.cart-item-remove:hover {
     letter-spacing: 0.1rem;
 }
 
-.cart-view .cart-item-details-price {
+.cart-item-details .name, .variants {
+    width: 60%;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.cart-view .cart-item-details .variants {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+}
+
+.cart-view .cart-item-details .price {
     font-size: 20px;
-    padding-left: 35px;
+    width: 60%;
+    text-align: center;
 }
 
 .cart-view .cart-total-price {
@@ -166,10 +181,11 @@ button.cart-item-remove:hover {
     font-size: 25px;
 }
 
-.cart-view .cart-item-details-qty {
+.cart-view .cart-item-details .qty {
     display: flex;
-    width: 50%;
-    justify-content: left;
+    width: 60%;
+    justify-content: center;
+    margin: 8px 0;
 }
 
 .cart-view .right a, .cart-view .right button {

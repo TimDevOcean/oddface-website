@@ -14,23 +14,7 @@ const ProductView = ({ addToCart }) => {
     const [product, setProduct] = useState({});
     const [quantity, setQuantity] = useState(1);
     const [loading, setLoading] = useState(true);
-    const [originalPrice, setOriginalPrice] = useState(0);
-
-    const[colorVariant, setColorVariant] = useState("vgrp_zkK6oLXOKoXn0Q");
-    const[color, setColor] = useState("optn_mOVKl4D8WrlprR");
-    const[sizeVariant, setSizeVariant] = useState("vgrp_DWy4oGJxjw6Jx2");
-    const[size, setSize] = useState("optn_gvRjwOrgWBl4mN");
-
-    // console.log(colorVariant, color, sizeVariant, size);
-
-
-    const refreshVariantSelectors = () => {
-      document.getElementById("colors").value="optn_mOVKl4D8WrlprR";
-      document.getElementById("colors").value="none";
-      document.getElementById("sizes").value="optn_gvRjwOrgWBl4mN";
-      document.getElementById("sizes").value="none";
-    }
-
+    // const [originalPrice, setOriginalPrice] = useState(0);
   
     const fetchProduct = async (id) => {
 
@@ -38,20 +22,17 @@ const ProductView = ({ addToCart }) => {
       const { name, price, assets, image, variant_groups, quantity, description } = response;
 console.log(response)      
 
-      setOriginalPrice(price.raw);
+      // setOriginalPrice(price.raw);
       setProduct({
         id,
         name,
         quantity,
-        option:{
-          [colorVariant] : color,
-          [sizeVariant] : size,
-        },
+        option:{},
         variant_groups,
         description,
         assets,
         src: image.url,
-        price: price.formatted_with_code,
+        price: price.formatted_with_symbol,
       });
     };
   
@@ -70,24 +51,27 @@ console.log(response)
       }
     };
   
-    const priceCalculator = (optionPrice) => {
-        if (optionPrice === originalPrice) {
-          return product.price;
-        }
+    // const priceCalculator = (optionPrice) => {
+    //     if (optionPrice === originalPrice) {
+    //       return product.price;
+    //     }
     
-        const priceArray = product.price.split(" ");
-        const total = originalPrice + optionPrice;
-        return `${total} ${priceArray[1]}`;
-      };
+    //     const priceArray = product.price.split(" ");
+    //     const total = originalPrice + optionPrice;
+    //     return `${total} ${priceArray[1]}`;
+    //   };
     
-      const updateProduct = (optionPrice, src, { id, variantId }) => {
-        setProduct({
-          ...product,
-          price: priceCalculator(optionPrice),
-          src,
-          option: { [variantId]: id },
-        });
-      };
+    //   const updateProductImage = (src) => {
+    //     setProduct({
+    //       ...product,
+    //       src
+    //     });
+    //   };
+
+    //   const getImageUrl = (assetId) => {
+    //     const relatedAsset = product.assets.find((color) => color.id === assetId);
+    //     return relatedAsset?.url || "";
+    //   };
 
 
       const handleSelectChange = (e) => {
@@ -104,27 +88,6 @@ console.log(response)
       console.log(product);  
       }
 
-      const handleColorSelect = (e) => {
-        e.preventDefault();
-        const { name, value } = e.target; 
-          setColorVariant(name);
-          setColor(value);
-          console.log(product);
-      }
-
-      const handleSizeSelect = (e) => {
-        e.preventDefault();
-        const { name, value } = e.target; 
-          setSizeVariant(name);
-          setSize(value);
-          console.log(product);
-      }
-
-  
-      const getImageUrl = (assetId) => {
-        const relatedAsset = product.assets.find((pro) => pro.id === assetId);
-        return relatedAsset?.url || "";
-      };
 
     return (
         <Container className='product-view'>
@@ -153,11 +116,10 @@ console.log(response)
                   <h4>
                   Select variants
                   </h4>
-                {
+                { 
                   <select 
-                    onChange={handleColorSelect}  
+                    onChange={handleSelectChange}  
                     name={product.variant_groups[0].id}
-                    value={color[0].id} 
                     id="colors">
                       <option value="none">Select Color</option>
                         {product.variant_groups[0].options?.map((color) => (
@@ -169,9 +131,8 @@ console.log(response)
                   </select>
                 }{ 
                   <select 
-                  onChange={handleSizeSelect} 
+                  onChange={handleSelectChange} 
                   name={product.variant_groups[1].id} 
-                  value={size[0].id}
                   id="sizes">
                     <option value="none">Select Size</option>
                         {product.variant_groups[1].options?.map((size) => (
