@@ -13,8 +13,10 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
         onRemoveFromCart(item.id);
     }
 
-    const selectedColor = item.selected_options[0].option_name;
-    const selectedSize = item.selected_options[1].option_name;
+    const colorVariant = item.selected_options[0]?.group_name;
+    const sizeVariant = item.selected_options[1]?.group_name;
+    const selectedColor = item.selected_options[0]?.option_name;
+    const selectedSize = item.selected_options[1]?.option_name;
 
 console.log(item);
 console.log(selectedColor, selectedSize);
@@ -23,7 +25,10 @@ console.log(selectedColor, selectedSize);
         <img className="cart-item-image" src={item.image.url} alt={item.name} />
         <div className="cart-item-details">
             <h6 className="name">{item.name}</h6>
-            <div className='variants'>Color: {selectedColor} | Size: {selectedSize}</div>
+            {item.selected_options.length ?
+            <div className='variants'>{`${colorVariant}:`} {selectedColor} &nbsp;|&nbsp; {`${sizeVariant}:`} {selectedSize}</div>
+            : null
+            }
             <div className="qty">
             <button onClick={() => item.quantity > 1 ? handleUpdateCartQty(item.id, item.quantity - 1) : handleRemoveFromCart()}>-</button>
                 <p>{item.quantity}</p>

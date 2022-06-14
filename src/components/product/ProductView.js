@@ -121,7 +121,7 @@ console.log(response)
                     onChange={handleSelectChange}  
                     name={product.variant_groups[0].id}
                     id="colors">
-                      <option value="none">Select Color</option>
+                      <option value="none">Select {product.variant_groups[0].name}</option>
                         {product.variant_groups[0].options?.map((color) => (
                           <option key={color.id}
                           value={color.id}
@@ -134,7 +134,7 @@ console.log(response)
                   onChange={handleSelectChange} 
                   name={product.variant_groups[1].id} 
                   id="sizes">
-                    <option value="none">Select Size</option>
+                    <option value="none">Select {product.variant_groups[1].name}</option>
                         {product.variant_groups[1].options?.map((size) => (
                           <option key={size.id}
                           value={size.id}
