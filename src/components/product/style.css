@@ -152,8 +152,9 @@ button.product-btn:hover {
     padding: 10px;
 }
 
-.product-view .sizes, .colors {
-    margin: 25px;
+.product-view #sizes, #colors {
+    margin: 25px 0;
+    margin-right: 25px;
 }
 
 /*Product category styles*/

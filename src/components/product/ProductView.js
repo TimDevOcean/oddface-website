@@ -15,17 +15,38 @@ const ProductView = ({ addToCart }) => {
     const [quantity, setQuantity] = useState(1);
     const [loading, setLoading] = useState(true);
     const [originalPrice, setOriginalPrice] = useState(0);
+
+    const[colorVariant, setColorVariant] = useState("vgrp_zkK6oLXOKoXn0Q");
+    const[color, setColor] = useState("optn_mOVKl4D8WrlprR");
+    const[sizeVariant, setSizeVariant] = useState("vgrp_DWy4oGJxjw6Jx2");
+    const[size, setSize] = useState("optn_gvRjwOrgWBl4mN");
+
+    // console.log(colorVariant, color, sizeVariant, size);
+
+
+    const refreshVariantSelectors = () => {
+      document.getElementById("colors").value="optn_mOVKl4D8WrlprR";
+      document.getElementById("colors").value="none";
+      document.getElementById("sizes").value="optn_gvRjwOrgWBl4mN";
+      document.getElementById("sizes").value="none";
+    }
+
   
     const fetchProduct = async (id) => {
 
       const response = await commerce.products.retrieve(id);
       const { name, price, assets, image, variant_groups, quantity, description } = response;
-console.log(response)
+console.log(response)      
+
       setOriginalPrice(price.raw);
       setProduct({
         id,
         name,
         quantity,
+        option:{
+          [colorVariant] : color,
+          [sizeVariant] : size,
+        },
         variant_groups,
         description,
         assets,
@@ -39,6 +60,7 @@ console.log(response)
       fetchProduct(id[2]);
     }, []);
   
+
     const handleQuantity = (param) => {
       if (param === "decrease" && quantity > 1) {
         setQuantity(quantity - 1);
@@ -74,13 +96,31 @@ console.log(response)
         setProduct({
           ...product,
           option: {
+            [name]: value,
             ...product.option,
             [name]: value
           }
       })  
       console.log(product);  
       }
-    
+
+      const handleColorSelect = (e) => {
+        e.preventDefault();
+        const { name, value } = e.target; 
+          setColorVariant(name);
+          setColor(value);
+          console.log(product);
+      }
+
+      const handleSizeSelect = (e) => {
+        e.preventDefault();
+        const { name, value } = e.target; 
+          setSizeVariant(name);
+          setSize(value);
+          console.log(product);
+      }
+
+  
       const getImageUrl = (assetId) => {
         const relatedAsset = product.assets.find((pro) => pro.id === assetId);
         return relatedAsset?.url || "";
@@ -114,23 +154,33 @@ console.log(response)
                   Select variants
                   </h4>
                 {
-                  <select onChange={(e) => handleSelectChange(e)} name={product.variant_groups[0].id} className="colors">
-                      {product.variant_groups[0].options?.map((color) => (
-                        <option value={color.id}
-                          key={color.id}
-                        >{color.name}</option>
-                      ))
-                      }
-                </select>
+                  <select 
+                    onChange={handleColorSelect}  
+                    name={product.variant_groups[0].id}
+                    value={color[0].id} 
+                    id="colors">
+                      <option value="none">Select Color</option>
+                        {product.variant_groups[0].options?.map((color) => (
+                          <option key={color.id}
+                          value={color.id}
+                          >{color.name}</option>
+                        ))
+                        }
+                  </select>
                 }{ 
-                  <select onChange={(e) => handleSelectChange(e)} name={product.variant_groups[1].id} className="sizes">
-                      {product.variant_groups[1].options?.map((size) => (
-                        <option value={size.id}
-                          key={size.id}
-                        >{size.name}</option>
-                      ))
-                      }
-                </select>
+                  <select 
+                  onChange={handleSizeSelect} 
+                  name={product.variant_groups[1].id} 
+                  value={size[0].id}
+                  id="sizes">
+                    <option value="none">Select Size</option>
+                        {product.variant_groups[1].options?.map((size) => (
+                          <option key={size.id}
+                          value={size.id}
+                          >{size.name}</option>
+                        ))
+                        }
+                  </select>
                 }
                 </div>
                 ) : null
@@ -177,7 +227,9 @@ console.log(response)
             </Grid>
         </Container>
     );
+    
 };
+
 
 
 export default ProductView;
