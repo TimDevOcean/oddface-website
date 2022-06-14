@@ -34,7 +34,8 @@ import CloseIcon from '@mui/icons-material/Close';
         severity={`${props.type}`} 
         onClose={() => handleAlertClose()}
         action={action}
-      >{`${props.message}`}
+      >
+        {`${props.message}`}
       </Alert>
     </div>
   );

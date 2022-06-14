@@ -157,6 +157,15 @@ button.product-btn:hover {
     margin-right: 25px;
 }
 
+.disabled-btn button {
+    background: #cccccc;
+    cursor: not-allowed;
+}
+
+.disabled-btn button:hover {
+    background: #cccccc;
+}
+
 /*Product category styles*/
 .product-list > div {
     width: 100%;

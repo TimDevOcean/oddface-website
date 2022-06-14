@@ -5,6 +5,7 @@ import {
   Container,
   InputBase,
   IconButton,
+  Alert,
 } from "@mui/material";
 import { Search } from "@mui/icons-material";
 import SelectCategory from "./SelectCategory";
@@ -25,6 +26,15 @@ const FilterProduct = ({
   const [resultMessage, setResultMessage] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(defaultCategory);
     
+  const showAlert = () => {
+    var element = document.getElementById("filter-alert");
+    element.classList.remove("hide");
+  }
+
+  const hideAlert = () => {
+    var element = document.getElementById("filter-alert");
+    element.classList.add("hide");
+  }
 
 
   const handleInputChange = (event) => {
@@ -44,6 +54,8 @@ const FilterProduct = ({
     } else {
       setSelectedCategory(category);
     }
+    showAlert();
+    setTimeout(hideAlert, 6000);
   };
 
   const onSubmit = async (e) => {
@@ -118,6 +130,10 @@ const FilterProduct = ({
         </Paper>
         <div style={{padding: 10}}>
             {loading && <Loader />}
+            <Alert id="filter-alert" className="hide" style={{width:425, margin:"auto"}} 
+              severity="info" onClose={() => hideAlert()}>
+              Click on the search icon to filter categories.
+            </Alert>
         </div>
         {resultMessage && <p className="result-message">{resultMessage}</p>}
         {searchResult.length && (

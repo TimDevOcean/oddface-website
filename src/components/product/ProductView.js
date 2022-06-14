@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import commerce from "../../lib/commerce";
 import Loader from "../loader/Loader";
-import { Grid, Container } from '@mui/material';
+import { Grid, Container, Alert } from '@mui/material';
 import "./style.css";
+import Alerter from "../Alerter";
 
 
 const createMarkup = (text) => {
@@ -20,7 +21,6 @@ const ProductView = ({ addToCart }) => {
 
       const response = await commerce.products.retrieve(id);
       const { name, price, assets, image, variant_groups, quantity, description } = response;
-console.log(response)      
 
       // setOriginalPrice(price.raw);
       setProduct({
@@ -36,6 +36,9 @@ console.log(response)
       });
     };
   
+    console.log(product.option)      
+
+
     useEffect(() => {
       const id = window.location.pathname.split("/");
       fetchProduct(id[2]);
@@ -174,14 +177,37 @@ console.log(response)
                     </button>
                     </Grid>
                     <Grid item xs={12}>
-                    <button
-                        className="product-view-cart-btn"
-                        onClick={() => {
-                        addToCart(product.id, quantity, product.option);
-                        }}
-                    >
-                        <span>Add to cart</span>
-                    </button>
+                      {product.option ?
+                        <div className="add-to-cart-section">
+                          {Object.keys(product.option).length !== 2 ?
+                            <div className="disabled-btn">
+                              <Alert style={{marginBottom:20,width:300}} 
+                                severity="info">
+                                Please select color and size.
+                              </Alert>
+                              <button
+                                  className="product-view-cart-btn"
+                                  onClick={() => {
+                                  alert("Please select all variants.");
+                                  }}
+                              >
+                                  <span>Add to cart</span>
+                              </button>
+                            </div>
+                          : 
+                            <button
+                                className="product-view-cart-btn"
+                                onClick={() => {
+                                addToCart(product.id, quantity, product.option);
+                                }}
+                            >
+                                <span>Add to cart</span>
+                            </button>
+                          }
+                        </div>
+                      :
+                        null
+                      }
                     </Grid>
                 </Grid>
                 </Grid>
