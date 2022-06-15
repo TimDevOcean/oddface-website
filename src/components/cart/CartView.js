@@ -24,7 +24,7 @@ const CartView = ({ cart, onRemoveFromCart, onEmptyCart, onUpdateCartQty }) => {
 
     return (
       <p className="cart-none">
-        You have no items in your shopping cart, start adding some!
+        You have no items in your shopping bag, start adding some!
       </p>
     );
   }
@@ -71,7 +71,7 @@ if (!cart.id){
             <Grid item md={4} className="right">
                 { renderTotal() }
                 <div className="cart-total-footer">
-                    <button className="cart-btn-empty" onClick={handleEmptyCart}>Clear Cart</button>
+                    <button className="cart-btn-empty" onClick={handleEmptyCart}>Empty Bag</button>
                     <Link to="/checkout" className="cart-btn-checkout">Checkout</Link> 
                 </div>
             </Grid>

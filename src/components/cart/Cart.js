@@ -18,7 +18,7 @@ const Cart = ({ cart, onRemoveFromCart, onEmptyCart, onUpdateCartQty }) => {
 
     return (
       <p className="cart-none">
-        You have no items in your shopping cart, start adding some!
+        You have no items in your shopping bag, start adding some!
       </p>
     );
   }
@@ -46,10 +46,10 @@ const Cart = ({ cart, onRemoveFromCart, onEmptyCart, onUpdateCartQty }) => {
     <div className="cart">
       { renderEmptyMessage() }
       { renderItems() }
-      <Link to="/cart-view">View Cart</Link>
+      <Link to="/cart-view">Open Bag</Link>
       <div className="cart-footer">
       { renderTotal() }
-        <button className="cart-btn-empty" onClick={handleEmptyCart}>Clear Cart</button>
+        <button className="cart-btn-empty" onClick={handleEmptyCart}>Empty Bag</button>
         <Link to="/checkout" className="cart-btn-checkout">Checkout</Link> 
       </div>
     </div>

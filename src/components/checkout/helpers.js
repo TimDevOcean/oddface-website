@@ -15,6 +15,7 @@ export const renderRelatedComponent = ({
   handleNextStep,
   handleCheckout,
   handleSelectChange,
+  handleShippingOptionChange,
 }) => {
   switch (bookingStep) {
     case "order-address":
@@ -26,6 +27,7 @@ export const renderRelatedComponent = ({
           handleSubmit={handleSubmit}
           handleChange={handleChange}
           handleSelectChange={handleSelectChange}
+          handleShippingOptionChange={handleShippingOptionChange}
         />
       );
     case "order-details":

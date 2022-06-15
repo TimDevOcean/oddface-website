@@ -37,7 +37,9 @@ const BookingDetails = ({ user, checkoutData, handleBackStep, handleNextStep }) 
       ))}
       <Divider />
       <ListItem>
-        <ListItemText primary="Shipping Cost" />
+        <ListItemText primary="Shipping Cost"
+          secondary={`${user.shippingOption.name}`}
+        />
         <Typography variant="body2">
           {`${currency}${shippingCost}`}
         </Typography>

@@ -109,9 +109,18 @@ button.nav-account-btn {
 }
 
 span.nav-cart-total {
-    color: rgb(163, 0, 0);
+    color: #ffffff;
     position: absolute;
     font-weight: 500;
+    background: #b00000;
+    width: 15px;
+    height: 15px;
+    border-radius: 50px;
+    font-size: 10px;
+    padding: 2px;
+    padding-top: 0;
+    margin-top: 10px;
+    margin-left: -10px;
 }
 
 .nav-logo a {

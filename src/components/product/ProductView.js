@@ -3,7 +3,6 @@ import commerce from "../../lib/commerce";
 import Loader from "../loader/Loader";
 import { Grid, Container, Alert } from '@mui/material';
 import "./style.css";
-import Alerter from "../Alerter";
 
 
 const createMarkup = (text) => {
@@ -191,7 +190,7 @@ const ProductView = ({ addToCart }) => {
                                   alert("Please select all variants.");
                                   }}
                               >
-                                  <span>Add to cart</span>
+                                  <span>Add to bag</span>
                               </button>
                             </div>
                           : 
@@ -201,7 +200,7 @@ const ProductView = ({ addToCart }) => {
                                 addToCart(product.id, quantity, product.option);
                                 }}
                             >
-                                <span>Add to cart</span>
+                                <span>Add to bag</span>
                             </button>
                           }
                         </div>

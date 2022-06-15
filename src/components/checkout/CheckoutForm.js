@@ -15,6 +15,7 @@ const CheckoutForm = ({
   handleSubmit,
   checkoutData,
   handleSelectChange,
+  handleShippingOptionChange
 }) => (
   <form className="checkout-form" onSubmit={handleSubmit} autoComplete="off">
     <Grid container spacing={4}>
@@ -150,7 +151,7 @@ const CheckoutForm = ({
             value={user.shippingOption.id}
             id="shipping-options-select"
             labelId="shipping-options-select-label"
-            onChange={(e) => handleSelectChange(e, "shippingOptions")}
+            onChange={(e) => handleShippingOptionChange(e)}
           >
             {user.shippingOptions.map((option) => (
               <MenuItem key={option.id} value={option.id}>

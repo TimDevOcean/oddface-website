@@ -12,7 +12,6 @@ import commerce from "../../lib/commerce";
 import { renderRelatedComponent } from "./helpers";
 import "./style.css";
 
-
 const steps = ["order-address", "order-details", "order-payment"];
 
 const convertObjectToArray = (countries) =>
@@ -73,8 +72,7 @@ const Checkout = ({ cart, orderInfo, orderError, handleCheckout }) => {
   const handleSelectChange = (e, state) => {
     e.preventDefault();
     const { name, value } = e.target;
-    console.log(e.target);
-    if (state === "shippingOptions") {
+    if (state === "shippin") {
       setUser({
         ...user,
         [name]: {
@@ -92,6 +90,18 @@ const Checkout = ({ cart, orderInfo, orderError, handleCheckout }) => {
     }
   };
 
+  const handleShippingOptionChange = (e) => {
+    e.preventDefault();
+    setUser({
+      ...user,
+      shippingOption: {
+        id: e.target.value,
+        price: user.shippingOptions.find((option) => option.id === e.target.value).price.raw,
+        name: user.shippingOptions.find((optionName) => optionName.id === e.target.value).description,
+      },
+    });
+  }
+  console.log(user.shippingOption)
   useEffect(() => {
     if (cart.id) {
       const generateToken = async () => {
@@ -197,8 +207,8 @@ const Checkout = ({ cart, orderInfo, orderError, handleCheckout }) => {
       <div className="checkout confirmation">
         <Container>
           <Paper className="paper" elevation={3}>
-            <p>You have no items in your cart, start adding some.</p>
-            <div>
+            <p>We have received your order, do you want to keep shopping?</p>
+            <div style={{marginTop:15}}>
               <Link to="/shop">
               Go to Shop
               </Link>
@@ -256,6 +266,7 @@ const Checkout = ({ cart, orderInfo, orderError, handleCheckout }) => {
             handleNextStep,
             handleCheckout,
             handleSelectChange,
+            handleShippingOptionChange,
           })}
         </Paper>
       </Container>
