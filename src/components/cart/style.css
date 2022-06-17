@@ -1,4 +1,6 @@
 .cart {
+    animation: pulse;
+    animation-duration: 0.8s;
     position: absolute;
     width: 300px;
     margin: 25px auto;
@@ -31,6 +33,8 @@
 }
 
 .cart-item {
+    animation: fadeIn;
+    animation-duration: 0.8s;
     display: flex;
     align-items: center;
     justify-content: left;
@@ -115,6 +119,9 @@ button.cart-item-remove:hover {
 
 /*Cart view styles*/
 .cart-view .paper {
+    animation: fadeInUp;
+    animation-duration: 0.9s;
+    transition: 0.9s ease-in-out;
     padding: 35px;
     padding-bottom: 55px;
     margin: 0 auto;

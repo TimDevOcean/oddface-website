@@ -1,9 +1,13 @@
 .filter-bar {
   font-family: 'Poppins' !important;
   margin-top: -90px;
-  }
+  animation: fadeInUp;
+  animation-duration: 0.8s;
+}
   
 .filter-bar .search-results {
+  animation: fadeInUp;
+  animation-duration: 1s;
   margin-top: 10px;
 }
 

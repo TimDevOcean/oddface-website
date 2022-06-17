@@ -9,7 +9,14 @@
     background: none;
 }
 
+.product-list .category-name {
+    animation: fadeInUp;
+    animation-duration: 0.8s;
+}
+
 .product-card {
+    animation: fadeInUp;
+    animation-duration: 0.9s;
     border-radius: 20px !important;
     border: solid 0px #dddddd !important;
     box-shadow: rgba(0, 0, 0, 0) 0px 4px 12px !important;
@@ -17,7 +24,8 @@
 }
 
 .product-image {
-    transition: 0.3s ease;
+    animation: fadeIn;
+    animation-duration: 0.8s;
 }
 
 .product-image:hover {
@@ -66,9 +74,13 @@ button.product-btn:hover {
 
 .product-view-title {
     font-size: 25px;
+    animation: fadeInUp;
+    animation-duration: 0.9s;
 }
 
 .product-view-img {
+    animation: fadeInUp;
+    animation-duration: 1s;
     width: 500px;
 }
 
@@ -108,12 +120,16 @@ button.product-btn:hover {
 }
 
 .product-view-price {
+    animation: fadeInUp;
+    animation-duration: 0.8s;
     font-size: 30px;
     padding: 20px 0;
     color: #a00000;
 }
 
 .product-view-cart-btn {
+    animation: fadeInUp;
+    animation-duration: 0.5s;
     color: #fff;
     background: #b00000;
     border: none;

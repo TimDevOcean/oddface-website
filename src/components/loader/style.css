@@ -1,4 +1,6 @@
 .loader {
+  animation: fadeIn;
+  animation-duration: 0.9s;
     width: 100%;
     height: auto;
     display: flex;

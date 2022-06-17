@@ -4,15 +4,19 @@
 
 .hero-txt span.highlight {
     font-style: italic;
-    font-weight: 500 !important;
+    font-weight: 400 !important;
 }
 
 .hero-txt h1 {
-    font-weight: 500;
+    animation: fadeInUp;
+    animation-duration: 0.8s;
+    font-weight: 400;
     font-size: 50px;
 }
 
 .hero-txt h2 {
+    animation: fadeIn;
+    animation-duration: 0.8s;
     font-size: 50px;
-    font-weight: 400 !important;
+    font-weight: 300 !important;
 }

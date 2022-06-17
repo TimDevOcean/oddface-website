@@ -1,8 +1,15 @@
 #alerter {
+    animation: fadeInUp;
+    animation-duration: 0.8s;
     display: none;
     width: 50%;
     margin: 0 auto;
     margin-bottom: 25px;
+}
+
+.MuiAlert-root {
+    animation: fadeInUp;
+    animation-duration: 1s;
 }
 
 .hide {
@@ -58,6 +65,10 @@ main {
     padding-top: 50px;
 }
 
+.page-header h2 {
+    animation: fadeInUp;
+    animation-duration: 0.9s;
+}
 
 /* Footer styles*/
 .footer {

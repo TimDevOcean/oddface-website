@@ -13,6 +13,7 @@ import "./App.css";
 import CartView from './components/cart/CartView';
 import { Grid } from '@mui/material';
 import Alerter from './components/Alerter';
+import 'animate.css';
 
 const App = () => {
   const [categories, setCategories] = useState('');

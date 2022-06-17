@@ -40,6 +40,8 @@ label.Mui-focused {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     border: 1px solid #dadada;
     border-radius: 25px;
+    animation: fadeInUp;
+    animation-duration: 0.9s;
   }
   
   .checkout .paper h6 {
