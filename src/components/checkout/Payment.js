@@ -68,6 +68,7 @@ const Payment = ({
                       firstname: user.firstName,
                       lastname: user.lastName,
                       email: user.email,
+                      phone: user.phone,
                     },
                     line_items: sanitizedLineItems(checkoutData.live.line_items),
                     fulfillment: { shipping_method: user.shippingOption.id  }

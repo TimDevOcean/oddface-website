@@ -29,6 +29,7 @@ const Checkout = ({ cart, orderInfo, orderError, handleCheckout }) => {
   const [user, setUser] = useState({
     city: "",
     email: "",
+    phone: "",
     address: "",
     postCode: "",
     lastName: "",

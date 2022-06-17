@@ -58,6 +58,19 @@ const CheckoutForm = ({
       </Grid>
       <Grid item xs={12} sm={6}>
         <TextField
+          variant="standard"
+          required
+          fullWidth
+          id="phone"
+          name="phone"
+          type="phone"
+          label="Phone"
+          value={user.phone}
+          onChange={handleChange}
+        />
+      </Grid>
+      <Grid item xs={12} sm={6}>
+        <TextField
           variant="standard"        
           required
           fullWidth
