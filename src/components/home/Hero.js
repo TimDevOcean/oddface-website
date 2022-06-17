@@ -19,7 +19,10 @@ const Hero = (props) => {
         <div style={componentStyle} className='hero'>
             <div className='app-container'>
                 <div className='hero-txt'>
-                <h1 className='hero-txt'>Stay ODD</h1>
+                <h1>Stay ODD</h1>
+                <h2><span className="highlight">-O</span>riginal</h2>
+                <h2><span className="highlight">-D</span>aring</h2>
+                <h2><span className="highlight">-D</span>ifferent</h2>
                 </div>
             </div>
         </div>

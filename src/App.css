@@ -13,6 +13,10 @@
     display: block !important;
 }
 
+.highlight {
+    color: #b00000;
+}
+
 .cart-loader > div {
     margin-left: -10px !important;
     display: flex;

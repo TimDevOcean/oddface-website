@@ -178,7 +178,7 @@ const ProductView = ({ addToCart }) => {
                           {Object.keys(product.option).length !== 2 ?
                             <div className="disabled-btn">
                               <Alert style={{marginBottom:20,width:300}} 
-                                severity="info">
+                                severity="error">
                                 Please select color and size.
                               </Alert>
                               <button
