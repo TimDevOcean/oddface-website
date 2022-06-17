@@ -131,7 +131,7 @@ const Checkout = ({ cart, orderInfo, orderError, handleCheckout }) => {
       setUser({
         ...user,
         shippingCountries: FormattedCountries,
-        shippingCountry: FormattedCountries[FormattedCountries.length - 1],
+        shippingCountry: FormattedCountries[83],
       });
     };
     if (!user.shippingCountries.length && checkoutData.id) {
@@ -149,7 +149,7 @@ const Checkout = ({ cart, orderInfo, orderError, handleCheckout }) => {
       setUser({
         ...user,
         shippingSubdivisions,
-        shippingSubdivision: shippingSubdivisions[0],
+        shippingSubdivision: shippingSubdivisions[6],
       });
     };
 

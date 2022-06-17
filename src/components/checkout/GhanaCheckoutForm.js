@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
-const CheckoutForm = ({
+const GhanaCheckoutForm = ({
   user = {},
   orderInfo,
   handleChange,
@@ -16,7 +16,8 @@ const CheckoutForm = ({
   checkoutData,
   handleSelectChange,
   handleShippingOptionChange
-}) => (
+}) => {
+  return (
   <form className="checkout-form" onSubmit={handleSubmit} autoComplete="off">
     <Grid container spacing={4}>
       <Grid item xs={12} sm={6}>
@@ -77,7 +78,7 @@ const CheckoutForm = ({
           id="address"
           name="address"
           value={user.address}
-          label="Address line 1"
+          label="Physical / Digital Address"
           onChange={handleChange}
         />
       </Grid>
@@ -93,20 +94,8 @@ const CheckoutForm = ({
           onChange={handleChange}
         />
       </Grid>
-      <Grid item xs={12} sm={6}>
-        <TextField
-          variant="standard"
-          required
-          fullWidth
-          id="post-code"
-          name="postCode"
-          value={user.postCode}
-          onChange={handleChange}
-          label="Zip / Postal code"
-        />
-      </Grid>
 
-      <Grid item xs={12} sm={6}>
+      <Grid className="hide" item xs={12} sm={6}>
         <FormControl fullWidth>
           <InputLabel id="shipping-country-select-label">
             Shipping Country
@@ -120,11 +109,9 @@ const CheckoutForm = ({
             labelId="shipping-country-select-label"
             onChange={(e) => handleSelectChange(e, "shippingCountries")}
           >
-            {user.shippingCountries.map((country) => (
-              <MenuItem key={country.code} value={country.code}>
-                {country.name}
+              <MenuItem value={user.shippingCountries[83].code}>
+                {user.shippingCountries[83].name}
               </MenuItem>
-            ))}
           </Select>
         </FormControl>
       </Grid>
@@ -177,7 +164,7 @@ const CheckoutForm = ({
     </Grid>
 
     <div className="actions">
-      <Link to="/cart-view">
+      <Link to="/cart">
         Go Back
       </Link>
       <button type="submit">
@@ -185,6 +172,7 @@ const CheckoutForm = ({
       </button>
     </div>
   </form>
-);
+  )
+};
 
-export default CheckoutForm;
+export default GhanaCheckoutForm;

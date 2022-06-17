@@ -58,7 +58,7 @@
 .r-menu {
     background-color: #fff;
     border-radius: 0 50px 50px 0;
-    margin-left: 0px !important;
+    margin-left: -1px !important;
     z-index: 2;
 }
 
