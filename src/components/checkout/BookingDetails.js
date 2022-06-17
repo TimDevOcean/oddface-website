@@ -15,7 +15,6 @@ const BookingDetails = ({ user, checkoutData, handleBackStep, handleNextStep }) 
   const totalRaw = checkoutData.live.subtotal.raw + shippingCostRaw;
   const totalPrice = totalRaw.toFixed(2);
 
-  console.log(checkoutData);
   
   return (
   <>
@@ -55,12 +54,12 @@ const BookingDetails = ({ user, checkoutData, handleBackStep, handleNextStep }) 
 
     <div className="actions">
       <button
-        onClick={(e) => handleBackStep(e, "order-address")}
+        onClick={(e) => handleBackStep(e, "Shipping")}
       >
         Go Back
       </button>
       <button
-        onClick={(e) => handleNextStep(e, "order-payment")}
+        onClick={(e) => handleNextStep(e, "Payment")}
       >
         Next
       </button>

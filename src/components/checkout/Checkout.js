@@ -12,7 +12,7 @@ import commerce from "../../lib/commerce";
 import { renderRelatedComponent } from "./helpers";
 import "./style.css";
 
-const steps = ["order-address", "order-details", "order-payment"];
+const steps = ["Shipping", "Summary", "Payment"];
 
 const convertObjectToArray = (countries) =>
   Object.entries(countries || {}).map(([code, name]) => ({ code, name }));
@@ -40,7 +40,7 @@ const Checkout = ({ cart, orderInfo, orderError, handleCheckout }) => {
     shippingSubdivision: {},
     shippingSubdivisions: [],
   });
-  const [bookingStep, setBookingStep] = useState("order-address");
+  const [bookingStep, setBookingStep] = useState("Shipping");
   const [checkoutData, setCheckoutData] = useState("");
 
   const previousShippingCountry = usePreviousState(user.shippingCountry);
@@ -51,7 +51,7 @@ const Checkout = ({ cart, orderInfo, orderError, handleCheckout }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setBookingStep("order-details");
+    setBookingStep("Summary");
   };
 
   const handleNextStep = (e, step) => {
@@ -72,7 +72,7 @@ const Checkout = ({ cart, orderInfo, orderError, handleCheckout }) => {
   const handleSelectChange = (e, state) => {
     e.preventDefault();
     const { name, value } = e.target;
-    if (state === "shippin") {
+    if (state === "xxxxx") {
       setUser({
         ...user,
         [name]: {
@@ -101,7 +101,7 @@ const Checkout = ({ cart, orderInfo, orderError, handleCheckout }) => {
       },
     });
   }
-  console.log(user.shippingOption)
+
   useEffect(() => {
     if (cart.id) {
       const generateToken = async () => {

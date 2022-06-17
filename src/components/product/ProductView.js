@@ -35,8 +35,6 @@ const ProductView = ({ addToCart }) => {
       });
     };
   
-    console.log(product.option)      
-
 
     useEffect(() => {
       const id = window.location.pathname.split("/");
@@ -87,7 +85,6 @@ const ProductView = ({ addToCart }) => {
             [name]: value
           }
       })  
-      console.log(product);  
       }
 
 

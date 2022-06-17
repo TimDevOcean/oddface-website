@@ -213,7 +213,7 @@ const App = () => {
 
       <Route path="/cart-view" element={
         <>
-        <Header title="Your Cart" />
+        <Header title="Your Bag" />
         <main>
           <div className='app-container'>
             <Alerter type={alertType} message={alertMessage} />
@@ -227,6 +227,24 @@ const App = () => {
         </main>
         </> }
       />
+
+      <Route path="/cart" element={
+        <>
+        <Header title="Your Bag" />
+        <main>
+          <div className='app-container'>
+            <Alerter type={alertType} message={alertMessage} />
+            <CartView
+              cart={cart}
+              onUpdateCartQty={handleUpdateCartQty}
+              onRemoveFromCart={handleRemoveFromCart}
+              onEmptyCart={handleEmptyCart}
+            />
+          </div>
+        </main>
+        </> }
+      />
+
 
       <Route path="/checkout" element={
         <>

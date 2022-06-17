@@ -18,8 +18,6 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
     const selectedColor = item.selected_options[0]?.option_name;
     const selectedSize = item.selected_options[1]?.option_name;
 
-console.log(item);
-console.log(selectedColor, selectedSize);
     return (
         <div className="cart-item">
         <img className="cart-item-image" src={item.image.url} alt={item.name} />

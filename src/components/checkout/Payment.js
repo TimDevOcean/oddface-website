@@ -74,7 +74,6 @@ const Payment = ({
                   };
                   
 
-                console.log(orderData);
                 handleCheckout(checkoutData.id, orderData);
                 handleNextStep(e, "confirmation");
             },
@@ -89,7 +88,7 @@ const Payment = ({
     return (
         <div className='actions'>
             <button
-                  onClick={(e) => handleBackStep(e, "order-details")}
+                  onClick={(e) => handleBackStep(e, "Summary")}
                 >
                   Back
             </button>

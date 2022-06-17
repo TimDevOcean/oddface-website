@@ -18,7 +18,7 @@ export const renderRelatedComponent = ({
   handleShippingOptionChange,
 }) => {
   switch (bookingStep) {
-    case "order-address":
+    case "Shipping":
       return (
         <CheckoutForm
           user={user}
@@ -30,7 +30,7 @@ export const renderRelatedComponent = ({
           handleShippingOptionChange={handleShippingOptionChange}
         />
       );
-    case "order-details":
+    case "Summary":
       return (
         <BookingDetails
           user={user}
@@ -40,7 +40,7 @@ export const renderRelatedComponent = ({
           handleCheckout={handleCheckout}
         />
       );
-    case "order-payment":
+    case "Payment":
       return (
         <Payment
           user={user}
