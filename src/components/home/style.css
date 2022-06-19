@@ -20,3 +20,34 @@
     font-size: 50px;
     font-weight: 300 !important;
 }
+
+.home .product-view-cart-btn {
+    text-decoration: none;
+    animation: fadeInUp;
+    animation-duration: 0.9s;  
+}
+
+.home main {
+    padding: 0 25px;
+}
+
+.home .main-grid img {
+    padding-top: 10px;
+    width: 95%;
+    animation: fadeInUp;
+    animation-duration: 1s;  
+}
+
+.home main h2 {
+    font-size: 55px;
+    line-height: 1;
+    font-weight: 600;
+}
+
+.home main h6 {
+    font-size: 13px;
+    letter-spacing: 1em;
+    padding-bottom: 10px;
+    animation: fadeInUp;
+    animation-duration: 1.2s;  
+}

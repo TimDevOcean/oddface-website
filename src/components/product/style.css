@@ -36,7 +36,7 @@
 .product-info {
     text-align: center;
     border-top: solid 1px #dddddd;
-    width: 80%;
+    width: 65%;
     margin: auto;
 }
 
@@ -81,7 +81,7 @@ button.product-btn:hover {
 .product-view-img {
     animation: fadeInUp;
     animation-duration: 1s;
-    width: 500px;
+    width: 450px;
 }
 
 .product-view h4 {
