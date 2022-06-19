@@ -85,7 +85,9 @@
 }
 
 .menu a:hover {
-    font-weight: 600;
+    color: #b00000 !important;
+    font-weight: 500;
+    transition: 0.9s;
 }
 
 .menu ul {

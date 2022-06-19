@@ -60,10 +60,10 @@ const App = () => {
     commerce.cart.add(productId, quantity, {...option,}).then((item) => {
       setCart(item.cart);
       setLoading(false);
-      handleAlert("success", "Item added to cart successfully.");
+      handleAlert("success", "Item added to bag successfully.");
     }).catch((error) => {
-      handleAlert("error", "There was an error adding the item to the cart");
-      console.error('There was an error adding the item to the cart', error);
+      handleAlert("error", "There was an error adding the item to your bag");
+      console.error('There was an error adding the item to the bag', error);
     });
   }
 
@@ -86,10 +86,10 @@ const App = () => {
     commerce.cart.remove(lineItemId).then((resp) => {
       setCart(resp.cart);
       setLoading(false);
-      handleAlert("success", "Item removed from cart.");
+      handleAlert("success", "Item removed from bag.");
     }).catch((error) => {
-      handleAlert("error", "There was an error removing the item from cart");
-      console.error('There was an error removing the item from the cart', error);
+      handleAlert("error", "There was an error removing the item from bag");
+      console.error('There was an error removing the item from the bag', error);
     });
   }
 
@@ -100,8 +100,8 @@ const App = () => {
       setLoading(false);
       handleAlert("success", "Quantity updated.");
     }).catch((error) => {
-      handleAlert("error", "There was an error updating the cart");
-      console.log('There was an error updating the cart items', error);
+      handleAlert("error", "There was an error updating your bag");
+      console.log('There was an error updating your bag items', error);
     });
   }
 
@@ -110,10 +110,10 @@ const App = () => {
     commerce.cart.empty().then((resp) => {
       setCart(resp.cart);
       setLoading(false);
-      handleAlert("success", "Cart cleared successfully.");
+      handleAlert("success", "Bag emptied successfully.");
     }).catch((error) => {
-      handleAlert("error", "There was an error clearing the cart");
-      console.error('There was an error emptying the cart', error);
+      handleAlert("error", "There was an error emptying your bag.");
+      console.error('There was an error emptying your bag', error);
     });
   }
 
@@ -132,7 +132,6 @@ const App = () => {
       );
 
       setOrderInfo(incomingOrder);
-      console.log(incomingOrder);
 
       refreshCart();
     } catch (error) {
@@ -181,7 +180,7 @@ const App = () => {
         <Header title="Shop" />
         <main>
           <div className='app-container'>
-            <Alerter type={alertType} message={alertMessage} />
+            {/* <Alerter type={alertType} message={alertMessage} /> */}
             {categories === '' ? 
               <Loader /> :
               <Shop 
@@ -197,13 +196,13 @@ const App = () => {
 
       <Route path="/product-view/:id" element={
         <>
-        <Header title="Product" />
+        <Header title="Shop" />
         <main>
           <div className='app-container'>
             <Alerter 
               type={alertType} 
               message={alertMessage} 
-              btnText={"View Cart"}
+              btnText={"View Bag"}
               onClick={()=>navigate("/cart-view", { replace: true })}
             />
             <ProductView addToCart={handleAddToCart}/>

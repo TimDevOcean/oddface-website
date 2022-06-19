@@ -1,6 +1,6 @@
 .cart {
     animation: pulse;
-    animation-duration: 0.8s;
+    animation-duration: 0.5s;
     position: absolute;
     width: 300px;
     margin: 25px auto;

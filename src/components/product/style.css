@@ -127,6 +127,10 @@ button.product-btn:hover {
     color: #a00000;
 }
 
+.product-view .product-description {
+    width: 80%;
+}
+
 .product-view-cart-btn {
     animation: fadeInUp;
     animation-duration: 0.5s;
