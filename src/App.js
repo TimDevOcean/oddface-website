@@ -4,7 +4,7 @@ import NavBar from './components/nav/NavBar';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import Header from './components/Header';
 import Checkout from './components/checkout/Checkout';
-import Home from './components/home/Home';
+import Home from './components/pages/Home';
 import ProductView from './components/product/ProductView';
 import Shop from './components/shop/Shop';
 import Loader from "./components/loader/Loader";
@@ -14,6 +14,8 @@ import CartView from './components/cart/CartView';
 import { Grid } from '@mui/material';
 import Alerter from './components/Alerter';
 import 'animate.css';
+import Contact from './components/pages/Contact';
+import StayOdd from './components/pages/StayOdd';
 
 const App = () => {
   const [categories, setCategories] = useState('');
@@ -171,7 +173,7 @@ const App = () => {
       
       <Route path="/" element={
         <main>
-        <Home />
+          <Home />
         </main>
       } />
     
@@ -193,6 +195,21 @@ const App = () => {
         </> 
         }
       />
+
+      <Route path="/stay-odd" element={
+        <>
+          <Header title="Stay ODD" />
+          <StayOdd />
+        </>
+      } />
+
+      <Route path="/contact" element={
+        <>
+          <Header title="Contact" />
+          <Contact />
+        </>
+      } />
+
 
       <Route path="/product-view/:id" element={
         <>

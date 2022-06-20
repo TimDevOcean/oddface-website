@@ -46,7 +46,7 @@ const NavBar = ( { cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart } ) => {
                         <Link to="/"><div style={{height:50,width:60,}}></div></Link>
                     </Grid>
                     <Grid className='r-menu' item xs={12} sm={12} md={5.5}>
-                    <Menu mi1="Stay ODD" mi2="Contact"/>
+                    <Menu mi1="Stay ODD" mi1link="/stay-odd" mi2="Contact" mi2link="/contact" />
                     </Grid>
                 </Grid>
 
