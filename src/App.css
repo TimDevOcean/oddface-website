@@ -58,17 +58,43 @@ main {
     align-items: center;
     height: 350px;
     background-image: url("https://oddfaceforever.com/wp-content/uploads/2022/06/of-hero-2.jpeg");
-    background-color: #f4f4f4;
     background-position: center;
     background-size: cover;
+    background-color: #f4f4f4;
     margin-bottom: 50px;
     padding-top: 50px;
+    animation: fadeIn;
+    animation-duration: 1s;
 }
 
 .page-header h2 {
     animation: fadeInUp;
     animation-duration: 0.9s;
 }
+
+
+@keyframes placeHolderShimmer{
+    0%{
+        background-position: -468px 0
+    }
+    100%{
+        background-position: 468px 0
+    }
+}
+
+.img-holder {
+    animation-duration: 1.25s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: #f4f4f4;
+    background: linear-gradient(to right, #F6F6F6 8%, #F0F0F0 18%, #F6F6F6 33%);
+    background-size: 600px 104px;
+    height: 100%;
+    position: relative;
+}
+
 
 /* Footer styles*/
 .footer {

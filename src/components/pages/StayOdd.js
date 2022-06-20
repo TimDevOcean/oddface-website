@@ -19,13 +19,17 @@ export const StayOdd = () => {
                     </p>
                 </Grid>
                 <Grid item md={5}>
-                    <img alt="Original" src="https://oddfaceforever.com/wp-content/uploads/2019/08/tim2.jpg" />
+                    <div className='img-holder'>
+                        <img alt="Original" src="https://oddfaceforever.com/wp-content/uploads/2019/08/tim2.jpg" />
+                    </div>
                 </Grid>
             </Grid>
 
             <Grid className='grid' container item spacing={15}>
                 <Grid item md={5}>
+                <div className='img-holder'>
                     <img alt="Daring" src="https://oddfaceforever.com/wp-content/uploads/2019/08/oddfits.jpg" />
+                </div>
                 </Grid>            
                 <Grid item md={7}>
                     <h2><span className="highlight">D</span>aring</h2>
@@ -46,7 +50,9 @@ export const StayOdd = () => {
                     </p>
                 </Grid>
                 <Grid item md={5}>
+                <div className='img-holder'>
                     <img alt="Original" src="https://oddfaceforever.com/wp-content/uploads/2019/12/tim-800x800.jpg" />
+                </div>
                 </Grid>
             </Grid>
            </Grid>

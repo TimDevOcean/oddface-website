@@ -13,7 +13,10 @@ const Hero = (props) => {
         backgroundImage: 'url("https://oddfaceforever.com/wp-content/uploads/2022/06/of-hero-2.jpeg")',
         backgroundPosition: 'center',
         backgroundSize: 'cover',
+        backgroundColor: '#f4f4f4',
         marginBottom: 50,
+        animation: "fadeIn",
+        animationDuration: "1s",    
 }
 
     return (
