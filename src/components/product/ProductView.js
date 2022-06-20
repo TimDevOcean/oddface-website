@@ -120,7 +120,7 @@ const ProductView = ({ addToCart }) => {
                     />
                   </div>
                 ))
-              : null}
+                : null}
                 </Grid>
 
                 <Grid item xs={12} md={6}>
