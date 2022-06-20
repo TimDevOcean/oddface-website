@@ -167,6 +167,15 @@ button.product-btn:hover {
     border: 1px solid #b00000;
 }
 
+.variant-images {
+    display: inline-block !important;
+}
+
+.variant-images img {
+    cursor: pointer;
+    width: 120px;
+}
+
 .variants button {
     margin: 15px;
     padding: 10px;

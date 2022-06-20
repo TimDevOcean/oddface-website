@@ -61,17 +61,17 @@ const ProductView = ({ addToCart }) => {
     //     return `${total} ${priceArray[1]}`;
     //   };
     
-    //   const updateProductImage = (src) => {
-    //     setProduct({
-    //       ...product,
-    //       src
-    //     });
-    //   };
+      const updateProductImage = (src) => {
+        setProduct({
+          ...product,
+          src
+        });
+      };
 
-    //   const getImageUrl = (assetId) => {
-    //     const relatedAsset = product.assets.find((color) => color.id === assetId);
-    //     return relatedAsset?.url || "";
-    //   };
+      const getImageUrl = (assetId) => {
+        const relatedAsset = product.assets.find((color) => color.id === assetId);
+        return relatedAsset?.url || "";
+      };
 
 
       const handleSelectChange = (e) => {
@@ -84,7 +84,7 @@ const ProductView = ({ addToCart }) => {
             ...product.option,
             [name]: value
           }
-      })  
+      })
       }
 
 
@@ -101,7 +101,28 @@ const ProductView = ({ addToCart }) => {
                 />
                 {loading && <Loader />}
 
+                {product.variant_groups?.length
+                ? product.variant_groups[0].options?.map((pro) => (
+                  <div className="variant-images" key={pro.id}>
+                    <img 
+                      src={getImageUrl(pro.assets[0])}
+                      alt={pro.name}
+                      onClick={() =>
+                        updateProductImage(getImageUrl(pro.assets[0]))
+                      }
+                    />
+                    <img
+                      src={getImageUrl(pro.assets[1])}
+                      alt={pro.name}
+                      onClick={() =>
+                        updateProductImage(getImageUrl(pro.assets[1]))
+                      }
+                    />
+                  </div>
+                ))
+              : null}
                 </Grid>
+
                 <Grid item xs={12} md={6}>
                 <span className="product-view-title">{product.name}</span>
                 <p className="product-description"

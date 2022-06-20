@@ -83,7 +83,7 @@ main {
 }
 
 .img-holder {
-    animation-duration: 1.25s;
+    animation-duration: 0.9s;
     animation-fill-mode: forwards;
     animation-iteration-count: infinite;
     animation-name: placeHolderShimmer;
