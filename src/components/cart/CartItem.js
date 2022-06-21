@@ -13,10 +13,10 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
         onRemoveFromCart(item.id);
     }
 
-    const colorVariant = item.selected_options[0]?.group_name;
-    const sizeVariant = item.selected_options[1]?.group_name;
-    const selectedColor = item.selected_options[0]?.option_name;
-    const selectedSize = item.selected_options[1]?.option_name;
+    const colorVariant = item.selected_options[1]?.group_name;
+    const sizeVariant = item.selected_options[0]?.group_name;
+    const selectedColor = item.selected_options[1]?.option_name;
+    const selectedSize = item.selected_options[0]?.option_name;
 
     return (
         <div className="cart-item">

@@ -25,8 +25,8 @@ const BookingDetails = ({ user, checkoutData, handleBackStep, handleNextStep }) 
             primary={item.name}
             secondary={`
               ${item.quantity}
-              ${item.selected_options[0].option_name}
-              - ${item.selected_options[1].option_name}
+              ${item.selected_options[1].option_name}
+              - ${item.selected_options[0].option_name}
             `}
           />
           <Typography variant="body2">
