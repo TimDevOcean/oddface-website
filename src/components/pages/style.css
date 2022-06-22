@@ -108,3 +108,16 @@
     animation: fadeIn;
     animation-duration: 1s;  
 }
+
+/* Terms & Conditions */
+.terms h4, .delivery h4 {
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    padding-top: 25px;
+    animation: fadeInUp;
+    animation-duration: 0.7s;  
+}
+
+.terms p, .delivery p {
+    font-weight: 300;
+}

@@ -208,7 +208,7 @@ const Checkout = ({ cart, orderInfo, orderError, handleCheckout }) => {
       <div className="checkout confirmation">
         <Container>
           <Paper className="paper" elevation={3}>
-            <p>Your bag is empty, you can continue shopping.</p>
+            <p>Your bag is empty, continue shopping.</p>
             <div style={{marginTop:15}}>
               <Link to="/shop">
               Go to Shop

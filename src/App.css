@@ -50,6 +50,7 @@
 
 main {
     min-height: 400px;
+    padding: 20px;
 }
   
 .page-header {
@@ -68,6 +69,7 @@ main {
 }
 
 .page-header h2 {
+    font-weight: 400;
     animation: fadeInUp;
     animation-duration: 0.9s;
 }
@@ -106,6 +108,19 @@ main {
     align-items: center;
     height: 300px;
     background: #f4f4f4;
+}
+
+.footer a {
+    color: #808080 !important;  
+    transition: 0.3s ease-in-out;
+    text-decoration: none;
+    padding: 0 8px;
+    font-size: 12px;
+}
+
+.footer a:hover {
+    color: #b00000 !important;  
+    transition: 0.3s ease-in-out;
 }
 
 .footer hr {

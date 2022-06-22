@@ -26,6 +26,7 @@
 }
 
 .cart a:hover {
+    color: #b00000;
     font-weight: 600;
 }
 

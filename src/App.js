@@ -16,6 +16,8 @@ import Alerter from './components/Alerter';
 import 'animate.css';
 import Contact from './components/pages/Contact';
 import StayOdd from './components/pages/StayOdd';
+import Terms from './components/pages/Terms';
+import Delivery from './components/pages/Delivery';
 
 const App = () => {
   const [categories, setCategories] = useState('');
@@ -172,9 +174,7 @@ const App = () => {
     <Routes>
       
       <Route path="/" element={
-        <main>
           <Home />
-        </main>
       } />
     
       <Route path="/shop" element={
@@ -210,6 +210,19 @@ const App = () => {
         </>
       } />
 
+      <Route path="/terms" element={
+        <>
+          <Header title="Terms & Conditions" />
+          <Terms />
+        </>
+      } />
+
+      <Route path="/delivery" element={
+        <>
+          <Header title="Delivery & Returns" />
+          <Delivery />
+        </>
+      } />
 
       <Route path="/product-view/:id" element={
         <>
