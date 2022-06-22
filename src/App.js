@@ -18,6 +18,9 @@ import Contact from './components/pages/Contact';
 import StayOdd from './components/pages/StayOdd';
 import Terms from './components/pages/Terms';
 import Delivery from './components/pages/Delivery';
+import PrivacyPolicy from './components/pages/PrivacyPolicy';
+import SizeChart from './components/pages/SizeChart';
+import Account from './components/pages/Account';
 
 const App = () => {
   const [categories, setCategories] = useState('');
@@ -210,6 +213,14 @@ const App = () => {
         </>
       } />
 
+      <Route path="/account" element={
+        <>
+          <Header title="Your Account" />
+          <Account />
+        </>
+      } />
+
+
       <Route path="/terms" element={
         <>
           <Header title="Terms & Conditions" />
@@ -223,6 +234,22 @@ const App = () => {
           <Delivery />
         </>
       } />
+
+      <Route path="/size-chart" element={
+        <>
+          <Header title="Size Chart" />
+          <SizeChart />
+        </>
+      } />
+
+
+      <Route path="/privacy-policy" element={
+        <>
+          <Header title="Privacy Policy" />
+          <PrivacyPolicy />
+        </>
+      } />
+
 
       <Route path="/product-view/:id" element={
         <>

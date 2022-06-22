@@ -110,7 +110,8 @@
 }
 
 /* Terms & Conditions */
-.terms h4, .delivery h4 {
+.terms h4, .delivery h4, .privacy-policy h4 {
+    text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 0.2rem;
     padding-top: 25px;
@@ -118,6 +119,15 @@
     animation-duration: 0.7s;  
 }
 
-.terms p, .delivery p {
+.terms p, .delivery p, .privacy-policy p {
     font-weight: 300;
+}
+
+.size-chart {
+    display: flex;
+}
+
+.size-chart img {
+    width: 700px;
+    margin: 0 auto !important;
 }

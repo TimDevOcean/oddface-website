@@ -30,9 +30,9 @@ const NavBar = ( { cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart } ) => {
             <Grid container rowSpacing={0} columnSpacing={0}>
                 <Grid container item xs={12} md={1}>
                     <Grid item xs={12} sm={12} md={12}>
-                        <button className='nav-account-btn'>
-                            <PersonOutlineOutlinedIcon />
-                        </button>
+                        <Link to="/account" className='nav-account'>
+                            <PersonOutlineOutlinedIcon fontSize="inherit" />
+                        </Link>
                     </Grid>
                 </Grid>
                 
