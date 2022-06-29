@@ -42,7 +42,7 @@
 
 span.product-name {
     font-weight: 500;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .product-details {
@@ -128,7 +128,6 @@ button.product-btn:hover {
 }
 
 .product-view .product-description {
-    padding-top: 10px;
     width: 80%;
 }
 

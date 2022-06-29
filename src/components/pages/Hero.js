@@ -23,16 +23,12 @@ const Hero = (props) => {
         <div style={componentStyle} className='hero'>
             <div className='app-container'>
                 <div className='hero-txt'>
-                    <h3>Stay ODD</h3>
-                    <img 
-                        src="https://oddfaceforever.com/wp-content/uploads/2022/06/odd-2.png"
-                        alt="ODD"
-                    /><br/><br/>
-                    {/* <h2>-<span className="highlight">O</span>riginal</h2>
+                    <h1>Stay ODD</h1>
+                    <h2>-<span className="highlight">O</span>riginal</h2>
                     <h2>-<span className="highlight">D</span>aring</h2>
-                    <h2>-<span className="highlight">D</span>ifferent</h2><br /> */}
+                    <h2>-<span className="highlight">D</span>ifferent</h2><br />
                     &nbsp;
-                    <Link className='product-view-cart-btn' to="/shop">Shop Now →</Link>
+                    <Link className='product-view-cart-btn' to="/shop">Shop Now</Link>
                 </div>
             </div>
         </div>

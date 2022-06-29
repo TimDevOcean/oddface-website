@@ -14,14 +14,13 @@ const ProductView = ({ addToCart }) => {
     const [product, setProduct] = useState({});
     const [quantity, setQuantity] = useState(1);
     const [loading, setLoading] = useState(true);
-    // const [custom, setCustom] = useState("");
     // const [originalPrice, setOriginalPrice] = useState(0);
   
     const fetchProduct = async (id) => {
 
       const response = await commerce.products.retrieve(id);
-      const { name, price, assets, image, variant_groups, quantity, description, sku, extra_fields, custom } = response;
-      
+      const { name, price, assets, image, variant_groups, quantity, description } = response;
+
       // setOriginalPrice(price.raw);
       setProduct({
         id,
@@ -30,9 +29,6 @@ const ProductView = ({ addToCart }) => {
         option:{},
         variant_groups,
         description,
-        sku,
-        extra_fields,
-        custom,
         assets,
         src: image.url,
         price: price.formatted_with_symbol,
@@ -91,16 +87,6 @@ const ProductView = ({ addToCart }) => {
       })
       }
 
-      const handleCustom = (e) => {
-        e.preventDefault();
-        const { value } = e.target;
-        // setCustom(value); 
-        setProduct({
-          ...product,
-          custom: value
-        })
-      }
-      console.log(product);
 
     return (
         <Container className='product-view'>
@@ -139,7 +125,6 @@ const ProductView = ({ addToCart }) => {
 
                 <Grid item xs={12} md={6}>
                 <span className="product-view-title">{product.name}</span>
-                <p>SKU: {product.sku}</p>
                 <p className="product-description"
                     dangerouslySetInnerHTML={createMarkup(product.description)}
                 />
@@ -181,12 +166,7 @@ const ProductView = ({ addToCart }) => {
                 </div>
                 ) : null
                 }
-                <div>
-                { product.extra_fields ? 
-                  <input onBlur={handleCustom} placeholder="Your Custom Name"/>
-                  : null
-                }
-                </div><br />
+
                 <Grid container className="product-view-actions" spacing={4}>
                     <Grid item xs={12} md={1.5}>
                     <button
