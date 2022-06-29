@@ -22,6 +22,16 @@
     font-weight: 300 !important;
 }
 
+.hero-txt h3 {
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 0.45em;
+    padding-bottom: 10px;
+    animation: fadeInUp;
+    animation-duration: 0.8s;
+}
+
 .home .product-view-cart-btn {
     text-decoration: none;
     animation: fadeInUp;
