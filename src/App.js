@@ -62,9 +62,9 @@ const App = () => {
     setCategories(productsPerCategory);
   };
 
-  const handleAddToCart = (productId, quantity, option = {}) => {
+  const handleAddToCart = (productId, quantity, option = {}, custom) => {
     setLoading(true);
-    commerce.cart.add(productId, quantity, {...option,}).then((item) => {
+    commerce.cart.add(productId, quantity, {...option,}, custom).then((item) => {
       setCart(item.cart);
       setLoading(false);
       handleAlert("success", "Item added to bag successfully.");

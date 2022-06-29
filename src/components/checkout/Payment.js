@@ -71,10 +71,13 @@ const Payment = ({
                       phone: user.phone,
                     },
                     line_items: sanitizedLineItems(checkoutData.live.line_items),
-                    fulfillment: { shipping_method: user.shippingOption.id  }
+                    fulfillment: { shipping_method: user.shippingOption.id  },
+                    extra_fields: {
+                      options: user.firstName
+                    }
                   };
-                  
-
+ 
+                console.log(orderData)
                 handleCheckout(checkoutData.id, orderData);
                 handleNextStep(e, "confirmation");
             },

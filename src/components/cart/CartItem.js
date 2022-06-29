@@ -8,7 +8,6 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
     const handleUpdateCartQty = (lineItemId, quantity) => {
         onUpdateCartQty(lineItemId, quantity);
     }
-
     const handleRemoveFromCart = () => {
         onRemoveFromCart(item.id);
     }
