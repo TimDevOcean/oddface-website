@@ -1,6 +1,11 @@
 .app * {
     -webkit-appearance: none !important;
+    -webkit-text-fill-color: none !important;
+}
+
+.app select, input {
     -webkit-border-radius: 0;
+    -webkit-background-composite: none;
 }
 
 #alerter {
