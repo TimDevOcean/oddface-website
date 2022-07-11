@@ -53,9 +53,13 @@
 
 .home .main-grid img {
     padding-top: 10px;
-    width: 95%;
+    width: 100%;
     animation: fadeInUp;
     animation-duration: 1s;  
+}
+
+.home .img3 {
+    padding-top: 125px !important;
 }
 
 .home main h2 {

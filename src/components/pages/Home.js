@@ -29,8 +29,8 @@ const Home = (props) => {
                         <Link className='product-view-cart-btn' to="/stay-odd">Learn More</Link>
                     </p>
                 </Grid>
-                <Grid style={{paddingTop:125}} item xs={12} md={4}>
-                    <img alt="ODDFACE" src="https://oddfaceforever.com/wp-content/uploads/2019/08/tim.jpg" />
+                <Grid item xs={12} md={4}>
+                    <img alt="ODDFACE" className="img3" src="https://oddfaceforever.com/wp-content/uploads/2019/08/tim.jpg" />
                 </Grid>
             </Grid>
             </main>

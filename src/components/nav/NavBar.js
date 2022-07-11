@@ -28,7 +28,7 @@ const NavBar = ( { cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart } ) => {
     return (
         <Container className={`nav-bar ${stickyClass}`}>
             <Grid container rowSpacing={0} columnSpacing={0}>
-                <Grid container item xs={12} md={1}>
+                <Grid container item xs={1} md={1}>
                     <Grid item xs={12} sm={12} md={12}>
                         <Link to="/account" className='nav-account'>
                             <PersonOutlineOutlinedIcon fontSize="inherit" />
@@ -36,21 +36,21 @@ const NavBar = ( { cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart } ) => {
                     </Grid>
                 </Grid>
                 
-                <Grid className='mid-nav' container item xs={12} md={10}>
-                    <Grid className='l-menu' item xs={12} sm={12} md={5.5}>
+                <Grid className='mid-nav' container item xs={10} md={10}>
+                    <Grid className='l-menu' item xs={5.5} md={5.5}>
                         <Menu mi1="Home" mi1link="/"
                          mi2="Shop" mi2link="/shop"
                          />
                     </Grid>
-                    <Grid className='nav-logo' item xs={12} sm={12} md={1}>
+                    <Grid className='nav-logo' item xs={1}  md={1}>
                         <Link to="/"><div style={{height:50,width:60,}}></div></Link>
                     </Grid>
-                    <Grid className='r-menu' item xs={12} sm={12} md={5.5}>
+                    <Grid className='r-menu' item xs={5.5}  md={5.5}>
                     <Menu mi1="Stay ODD" mi1link="/stay-odd" mi2="Contact" mi2link="/contact" />
                     </Grid>
                 </Grid>
 
-                <Grid container item xs={12} md={1}>
+                <Grid container item xs={1} md={1}>
                     <Grid item xs={12} sm={12} md={12}>
                         <CartNav 
                             cart={cart}

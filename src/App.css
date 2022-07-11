@@ -50,7 +50,7 @@
 
 main {
     min-height: 400px;
-    padding: 20px;
+    padding: 12px;
 }
   
 .page-header {
@@ -139,10 +139,27 @@ main {
 
 
 /* Media queries */
-@media (max-width: 600px) {
+@media (max-width: 900px) {
     .app-container {
         width: 100%;
         margin: auto;
+    }
+}
+
+
+@media (max-width: 600px) {
+    #alerter {
+        width: 95%;
+    }
+
+    .app-container {
+        width: 100%;
+        margin: auto;
+    }
+
+    main {
+        margin-top: -35px;
+        min-height: 200px;
     }
 
     .nav-bar {
@@ -153,7 +170,120 @@ main {
         display: block !important;
     }
 
-    .hero {
-        height: 400px;
+    .page-header {
+        height: 250px;
     }
+
+    .page-header h2 {
+        font-size: 30px;
+    }
+
+    .home .img3 {
+        padding-top: 5px !important;
+    }
+
+    .hero {
+        height: 425px;
+    }
+
+    .hero-txt {
+        padding: 0px !important;
+    }
+
+    .hero-txt h3 {
+        padding: 50px 0 0 10px;
+        font-size: 20px;
+    }
+
+    .hero-txt img {
+        width: 180px;
+        padding-top: 10px !important;
+    }
+
+    .filter-bar {
+        margin-top: -65px;
+    }
+
+    .filter-bar .root {
+        width: 100%;
+        padding: 10px 5px 10px 35px;
+    }
+
+    .product-view-title {
+        font-size: 20px;
+    }
+
+    .product-view .product-description {
+        width: 100%;
+    }
+
+    .product-view h4 {
+        font-size: 12px;
+        padding-top: 10px;
+    }
+
+    .product-view-img {
+        width: 325px;
+    }
+
+    .variant-images img {
+        width: 78px;
+    }
+
+    .cart-view {
+        padding: 5px !important;
+    }
+
+    .cart-view .paper {
+        padding: 5px;
+    }
+
+    .cart-view .left {
+        padding-right: 0 !important;
+    }
+
+    .cart-view .right {
+        border: none;
+        width: 100%;
+        margin: auto;
+        padding: 25px 0;
+    }
+
+    .cart-view img {
+        width: 100px;
+    }
+
+    .cart-view h6 {
+        font-size: 15px;
+    }
+
+    .cart-item-details .variants {
+        font-size: 10px !important;
+    }
+
+    .checkout-container {
+        padding: 0 !important;
+    }
+
+    .checkout .paper {
+        padding: 25px 10px;
+    }
+
+    .stepper {
+        padding: 0 !important;
+    }
+
+    .stepper span {
+        font-size: 12px;
+    }
+
+    .checkout-form {
+        padding: 10px;
+    }
+
+    .size-chart img {
+        width: 100%;
+        height: 100%;
+    }
+    
 }

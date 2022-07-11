@@ -27,7 +27,7 @@ const ProductsList = ({ categories, onAddToCart }) => {
                 <Container className="products" id="products">
                     <Grid container rowSpacing={2} columnSpacing={2}>
                     { category.productsData.map((product) => (
-                        <Grid key={product.id} item xs={6} sm={6} md={6}>
+                        <Grid key={product.id} item xs={12} sm={6} md={6}>
                             <ProductItem
                                 product={product}
                                 onAddToCart={onAddToCart}

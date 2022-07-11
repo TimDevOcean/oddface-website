@@ -168,7 +168,7 @@ const ProductView = ({ addToCart }) => {
                 }
 
                 <Grid container className="product-view-actions" spacing={4}>
-                    <Grid item xs={12} md={1.5}>
+                    <Grid item xs={2} md={1.5}>
                     <button
                         className="product-view-qty-btn"
                         onClick={() => {
@@ -178,12 +178,12 @@ const ProductView = ({ addToCart }) => {
                         -
                     </button>
                     </Grid>
-                    <Grid item xs={12} md={1}>
+                    <Grid item xs={3} md={1}>
                     <p className="product-view-qty">
                         {quantity}
                     </p>
                     </Grid>
-                    <Grid item xs={12} md={1.5}>
+                    <Grid item xs={1.5} md={1.5}>
                     <button
                         className="product-view-qty-btn"
                         onClick={() => {

@@ -130,7 +130,7 @@ const FilterProduct = ({
         </Paper>
         <div style={{padding: 10}}>
             {loading && <Loader />}
-            <Alert id="filter-alert" className="hide" style={{width:425, margin:"auto"}} 
+            <Alert id="filter-alert" className="hide" style={{maxWidth:425, margin:"auto"}} 
               severity="info" onClose={() => hideAlert()}>
               Click on the search icon to filter categories.
             </Alert>

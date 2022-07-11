@@ -241,7 +241,7 @@ const Checkout = ({ cart, orderInfo, orderError, handleCheckout }) => {
 
   return (
     <div className="checkout">
-      <Container>
+      <Container className="checkout-container">
         <Paper className="paper" elevation={3}>
           {bookingStep !== "confirmation" && (
             <Stepper

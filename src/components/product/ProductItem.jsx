@@ -20,7 +20,7 @@ const ProductItem = ({ product, onAddToCart }) => {
     <div className="product">
       <Card sx={{ maxWidth: 450 }} className="product-card">
       <Link to={`/product-view/${product.id}`}>
-        <CardMedia component="img" height="450" className="product-image" image={product.image?.url} alt={product.name} />
+        <CardMedia component="img" className="product-image" image={product.image?.url} alt={product.name} />
         <CardContent className="product-info">
           <span className="product-name">{product.name}</span>
           {/* <p className="product-description" dangerouslySetInnerHTML={{__html:product.description}}/> */}

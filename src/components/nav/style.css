@@ -16,6 +16,7 @@
 
 .nav-bar-mobile {
     display: none !important;
+    margin-top: 20px;
 }
 
 .sticky-nav {
