@@ -1,3 +1,8 @@
+.app * {
+    -webkit-appearance: none !important;
+    -webkit-border-radius: 0;
+}
+
 #alerter {
     animation: fadeInUp;
     animation-duration: 0.8s;
@@ -24,6 +29,7 @@
     color: #b00000;
 }
 
+
 .cart-loader > div {
     margin-left: -10px !important;
     display: flex;
@@ -39,8 +45,15 @@
     margin-right: auto;
     left: 0;
     right: 0;
-    margin-top: 50px;
+    margin-top: 45px;
     background: none;
+}
+
+.sticky-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-top: 20px;
 }
 
 .app-container {
@@ -150,6 +163,16 @@ main {
 @media (max-width: 600px) {
     #alerter {
         width: 95%;
+    }
+
+    .loader-container {
+        width: 100% !important;
+        margin-top: 18px;
+        z-index: 1000;
+    }
+
+    .cart-loader {
+        margin-left: 5px !important;
     }
 
     .app-container {

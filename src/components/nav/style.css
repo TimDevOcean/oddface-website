@@ -19,12 +19,23 @@
     margin-top: 20px;
 }
 
-.sticky-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    margin-top: 10px;
+.mobile-menu a, li {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Poppins' !important;
+    font-weight: 200 !important;
 }
+
+.mobile-menu .MuiPaper-root {
+    width: 100% !important;
+    margin-top: 20px;
+    color: #fff;
+    padding-left: 10px;
+    background: #101010;
+    box-shadow: rgba(0, 0, 0, 0.7) 0px 4px 12px;
+    border-radius: 15px;
+}
+
 
 .nav-bar > div {
     display: flex;

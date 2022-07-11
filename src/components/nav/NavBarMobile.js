@@ -4,7 +4,7 @@ import CartNav from './CartNav';
 import Menu from './Menu';
 
 import { Grid, Container } from "@mui/material";
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import MobileMenu from './MobileMenu.tsx';
 import { Link } from 'react-router-dom';
 
 
@@ -31,9 +31,7 @@ const NavBarMobile = ( { cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart } 
                 
                 <Grid className='mid-nav' container item xs={12} md={10}>
                     <Grid className='l-menu' item xs={5} sm={12} md={5.5}>
-                        <Link to="/account" className='nav-account'>
-                            <PersonOutlineOutlinedIcon fontSize="inherit" />
-                        </Link>
+                        <MobileMenu />
                     </Grid>
                     <Grid className='nav-logo' item xs={2} sm={12} md={1}>
                         <Link to="/"><div style={{height:50,width:60,}}></div></Link>

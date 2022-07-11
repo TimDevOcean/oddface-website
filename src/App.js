@@ -33,6 +33,24 @@ const App = () => {
   const [alertMessage, setAlertMessage] = useState("");
   const navigate = useNavigate();
 
+
+  const [stickyClass, setStickyClass] = useState('');
+
+  useEffect(() => {
+    window.addEventListener('scroll', stickNavbar);
+    return () => window.removeEventListener('scroll', stickNavbar);
+  }, []);
+
+  const stickNavbar = () => {
+    if (window !== undefined) {
+      let windowHeight = window.scrollY;
+      // window height changed for the demo
+      windowHeight > 40 ? setStickyClass('sticky-nav') : setStickyClass('');
+    }
+  };
+
+
+
   const showAlert = () => {
     var element = document.getElementById("alerter");
     element.classList.add("show");
@@ -157,14 +175,14 @@ const App = () => {
 
   return (
     <div className="app">
-    <Grid container className='loader-container'>
-      <Grid container item md={1}>
+    <Grid container className={`loader-container ${stickyClass}`}>
+      <Grid container xs={4} item md={1}>
         <Grid item />
       </Grid>
-      <Grid container item md={10}>
+      <Grid container xs={4} item md={10}>
         <Grid item />
       </Grid>
-      <Grid container item md={1}>
+      <Grid container item xs={4} md={1}>
         <Grid item className="cart-loader">{loading && <Loader />}</Grid>
       </Grid>
     </Grid>
