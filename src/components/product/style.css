@@ -182,6 +182,8 @@ button.product-btn:hover {
 }
 
 .product-view #sizes, #colors {
+    color: #202020;
+    background-color: none;
     margin: 25px 0;
     margin-right: 25px;
 }

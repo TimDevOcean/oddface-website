@@ -10,9 +10,9 @@ const CartNav = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
     const renderOpenButton = () => (
       <div>
       <button className="nav-cart-btn">
-        {cart.total_items === 0 ? <ShoppingBagOutlinedIcon /> : 
+        {cart.total_items === 0 ? <ShoppingBagOutlinedIcon style={{color:"#202020"}}/> : 
         cart.total_items > 3 ? <Link to="/cart-view"><ShoppingBagIcon style={{color:"#202020"}} /></Link> 
-        : <ShoppingBagIcon />}
+        : <ShoppingBagIcon style={{color:"#202020"}}/>}
         {cart !== null && cart.total_items < 4 ? <span className='nav-cart-total'>{cart.total_items}</span> : 
         cart.total_items > 3 ? <Link to="/cart-view"><span className='nav-cart-total'>{cart.total_items}</span></Link> :
         ''}
@@ -22,7 +22,7 @@ const CartNav = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
   
     const renderCloseButton = () => (
       <button className="nav-cart-btn">
-        <ShoppingBagOutlinedIcon />
+        <ShoppingBagOutlinedIcon style={{color:"#202020"}}/>
       </button>
     );
   

@@ -1,7 +1,6 @@
 import { React, useState, useEffect } from 'react';
 import "./style.css";
 import CartNav from './CartNav';
-import Menu from './Menu';
 
 import { Grid, Container } from "@mui/material";
 import MobileMenu from './MobileMenu.tsx';
