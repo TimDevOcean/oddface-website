@@ -155,6 +155,10 @@ button.product-btn:hover {
 
 /*Variant styles*/
 
+.variants select {
+    font-size: 18px;
+}
+
 .variants img {
     width: 100px;
     border: 1px solid #202020;
