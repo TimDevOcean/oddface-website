@@ -31,7 +31,7 @@ export const StayOdd = () => {
                     <img alt="Daring" src="https://oddfaceforever.com/wp-content/uploads/2019/08/oddfits.jpg" />
                 </div>
                 </Grid>            
-                <Grid item md={7}>
+                <Grid className='daring' item md={7}>
                     <h2><span className="highlight">D</span>aring</h2>
                     <p>
                     After discovering ourselves and abilities, 

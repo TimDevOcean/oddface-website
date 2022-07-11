@@ -329,4 +329,12 @@ main {
         height: 100%;
     }
     
+    .stay-odd .grid {
+        padding: 25px 0;
+    }
+
+    .stay-odd .img-holder, .stay-odd .daring {
+        margin-top: -45px;
+    }
+
 }
