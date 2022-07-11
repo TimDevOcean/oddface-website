@@ -198,6 +198,13 @@ main {
         display: block !important;
     }
 
+    .mobile-menu a, li {
+        color: #fff;
+        text-decoration: none;
+        font-family: 'Poppins' !important;
+        font-weight: 200 !important;
+    }    
+
     .page-header {
         height: 250px;
     }

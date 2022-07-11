@@ -25,19 +25,22 @@ const CartNav = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
         <ShoppingBagOutlinedIcon style={{color:"#202020"}}/>
       </button>
     );
+
   
     return (
       <div className="nav">
       <div className="nav-cart" onClick={() => setCartVisible(!isCartVisible)}>
           { !isCartVisible ? renderOpenButton() : renderCloseButton() }
       </div>
-        { isCartVisible &&
+        { isCartVisible ?
           <Cart
             cart={cart}
             onUpdateCartQty={onUpdateCartQty}
             onRemoveFromCart={onRemoveFromCart}
             onEmptyCart={onEmptyCart}
           />
+          :
+          null
         }  
       </div>
     );

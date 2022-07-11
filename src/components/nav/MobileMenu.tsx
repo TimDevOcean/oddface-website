@@ -21,7 +21,7 @@ const MobileMenu = () => {
   };
 
   return (
-    <div>
+    <div className='mobile-nav'>
       <Button
         id="basic-button"
         aria-controls={open ? 'basic-menu' : undefined}

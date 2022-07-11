@@ -3,9 +3,15 @@ import CartItem from './CartItem';
 import PropTypes from 'prop-types';
 import "./style.css";
 import { Link } from 'react-router-dom';
+import ClickAwayListener from '@mui/base/ClickAwayListener';
 
 
 const Cart = ({ cart, onRemoveFromCart, onEmptyCart, onUpdateCartQty }) => {
+
+  const handleCartClose = () => {
+    var element = document.getElementById("bag");
+    element.classList.add("hide");
+  }
 
   const handleEmptyCart = () => {
     onEmptyCart();
@@ -43,16 +49,18 @@ const Cart = ({ cart, onRemoveFromCart, onEmptyCart, onUpdateCartQty }) => {
   );
 
   return (
-    <div className="cart">
-      <Link className='cart-view-link' to="/cart-view">Open Bag</Link>
+    <ClickAwayListener onClickAway={handleCartClose}>
+    <div id="bag" className="cart">
+      <Link className='cart-view-link' to="/cart-view" onClick={handleCartClose}>Open Bag →</Link>
       { renderEmptyMessage() }
       { renderItems() }
       <div className="cart-footer">
       { renderTotal() }
         <button className="cart-btn-empty" onClick={handleEmptyCart}>Empty Bag</button>
-        <Link to="/checkout" className="cart-btn-checkout">Checkout</Link> 
+        <Link to="/checkout" className="cart-btn-checkout" onClick={handleCartClose}>Checkout</Link> 
       </div>
     </div>
+    </ClickAwayListener>
   );
 };
 
