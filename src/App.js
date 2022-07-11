@@ -21,6 +21,7 @@ import Delivery from './components/pages/Delivery';
 import PrivacyPolicy from './components/pages/PrivacyPolicy';
 import SizeChart from './components/pages/SizeChart';
 import Account from './components/pages/Account';
+import NavBarMobile from './components/nav/NavBarMobile';
 
 const App = () => {
   const [categories, setCategories] = useState('');
@@ -173,6 +174,13 @@ const App = () => {
         onRemoveFromCart={handleRemoveFromCart}
         onEmptyCart={handleEmptyCart}
       />
+      <NavBarMobile 
+        cart={cart}
+        onUpdateCartQty={handleUpdateCartQty}
+        onRemoveFromCart={handleRemoveFromCart}
+        onEmptyCart={handleEmptyCart}
+      />
+
   
     <Routes>
       

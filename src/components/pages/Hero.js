@@ -9,7 +9,6 @@ const Hero = (props) => {
         display: 'flex',
         justifyContent: 'left',
         alignItems: 'center',
-        height: 685,
         backgroundImage: 'url("https://oddfaceforever.com/wp-content/uploads/2022/06/of-hero-2.jpeg")',
         backgroundPosition: 'center',
         backgroundSize: 'cover',

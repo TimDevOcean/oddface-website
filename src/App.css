@@ -136,3 +136,24 @@ main {
 .footer-bottom {
     border: none;
 }
+
+
+/* Media queries */
+@media (max-width: 600px) {
+    .app-container {
+        width: 100%;
+        margin: auto;
+    }
+
+    .nav-bar {
+        display: none !important;
+    }
+
+    .nav-bar-mobile {
+        display: block !important;
+    }
+
+    .hero {
+        height: 400px;
+    }
+}
