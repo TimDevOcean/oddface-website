@@ -21,7 +21,7 @@ const CartNav = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
     );
   
     const renderCloseButton = () => (
-      <button className="nav-cart-btn">
+      <button className="nav-cart-btn bag-btn">
         <ShoppingBagOutlinedIcon style={{color:"#202020"}}/>
       </button>
     );

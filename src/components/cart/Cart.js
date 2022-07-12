@@ -12,6 +12,7 @@ const Cart = ({ cart, onRemoveFromCart, onEmptyCart, onUpdateCartQty }) => {
     var element = document.getElementById("bag");
     element.classList.add("hide");
     document.querySelector('.nav-cart-btn').click();
+    document.querySelector('.bag-btn').click();
   }
 
   const handleEmptyCart = () => {
