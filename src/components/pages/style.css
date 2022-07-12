@@ -132,6 +132,13 @@
     animation-duration: 1s;  
 }
 
+.stay-odd .product-view-cart-btn {
+    text-decoration: none;
+    animation: fadeInUp;
+    animation-duration: 0.9s;  
+}
+
+
 /* Terms & Conditions */
 .terms h4, .delivery h4, .privacy-policy h4 {
     text-transform: uppercase;
