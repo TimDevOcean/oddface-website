@@ -18,7 +18,7 @@ const BookingDetails = ({ user, checkoutData, handleBackStep, handleNextStep }) 
   
   return (
   <>
-    <List>
+    <List className="booking-summary">
       {checkoutData.live.line_items.map((item) => (
         <ListItem key={item.id}>
           <ListItemText

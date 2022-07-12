@@ -374,6 +374,11 @@ main {
         padding: 25px 10px;
     }
 
+    .booking-summary span {
+        color: #202020;
+        font-size: 15px !important;
+    }
+
     .stepper {
         padding: 0 !important;
     }

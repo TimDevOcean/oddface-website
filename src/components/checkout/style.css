@@ -4,6 +4,10 @@
     padding-bottom: 15px;
   }
 
+.booking-summary li {
+  color: #202020;
+}
+
 .stepper .MuiSvgIcon-root {
   color: #000 !important;
 }
