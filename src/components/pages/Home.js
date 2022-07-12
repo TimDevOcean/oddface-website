@@ -1,6 +1,7 @@
 import { Grid } from '@mui/material';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Subscribe from '../Subscribe';
 import Hero from './Hero';
 
 
@@ -33,6 +34,9 @@ const Home = (props) => {
                     <img alt="ODDFACE" className="img3" src="https://oddfaceforever.com/wp-content/uploads/2019/08/tim.jpg" />
                 </Grid>
             </Grid>
+            <div>
+                <Subscribe />
+            </div>
             </main>
             </div>
         </div>

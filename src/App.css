@@ -155,6 +155,66 @@ main {
     border: none;
 }
 
+/* Subscribe form */
+.subscribe {
+    width: 100% !important;
+    padding: 100px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn;
+    animation-duration: 0.9s;
+}
+
+.subscribe .s-form {
+    color: #fff;
+    height: 300px;
+    background: #202020;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.subscribe .s-form h2 {
+    text-align: center;
+    animation: fadeInUp;
+    animation-duration: 0.8s;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.subscribe .s-form h5 {
+    font-weight: 300;
+    line-height: 4em;
+}
+
+.subscribe .s-img {
+    height: 300px;
+    background-image: url("https://oddfaceforever.com/wp-content/uploads/2020/06/bree.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.subscribe input {
+    width: 300px !important;
+    padding: 8px 20px;
+    border: 1px solid #202020 !important;
+    border-radius: 25px 0 0 25px;
+}
+
+.subscribe button {
+    color: #fff;
+    background: #b00000;
+    border: 1px solid #b00000 !important;
+    border-radius: 0 25px 25px 0;
+    padding: 8px 20px 8px 15px;
+    transition: 0.3s ease;
+}
+
+.subscribe button:hover {
+    background: #960000;
+}
 
 /* Media queries */
 @media (max-width: 900px) {
@@ -336,6 +396,14 @@ main {
 
     .stay-odd .img-holder, .stay-odd .daring {
         margin-top: -45px;
+    }
+
+    .subscribe {
+        padding: 50px 0px;
+    }
+
+    .subscribe input {
+        width: 200px !important;
     }
 
 }

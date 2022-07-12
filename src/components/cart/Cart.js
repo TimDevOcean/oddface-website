@@ -52,7 +52,7 @@ const Cart = ({ cart, onRemoveFromCart, onEmptyCart, onUpdateCartQty }) => {
   return (
     <ClickAwayListener onClickAway={handleCartClose}>
     <div id="bag" className="cart">
-      <Link className='cart-view-link' to="/cart-view" onClick={handleCartClose}>Open Bag →</Link>
+      <Link className='cart-view-link' to="/cart-view" onClick={handleCartClose}>&nbsp;&nbsp;&nbsp; Open Bag →</Link>
       { renderEmptyMessage() }
       { renderItems() }
       <div className="cart-footer">
