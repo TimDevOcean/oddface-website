@@ -22,6 +22,8 @@ import PrivacyPolicy from './components/pages/PrivacyPolicy';
 import SizeChart from './components/pages/SizeChart';
 import Account from './components/pages/Account';
 import NavBarMobile from './components/nav/NavBarMobile';
+import Login from './components/account/Login';
+import Dashboard from './components/account/Dashboard';
 
 const App = () => {
   const [categories, setCategories] = useState('');
@@ -242,10 +244,24 @@ const App = () => {
       <Route path="/account" element={
         <>
           <Header title="Your Account" />
-          <Account />
+          <Account component={<Dashboard />} />
         </>
       } />
 
+      <Route path="/account/:loginToken" element={
+        <>
+          <Header title="Your Account" />
+          <Account component={<Dashboard />} />
+        </>
+      } />
+
+
+      <Route path="/account/login" element={
+        <>
+          <Header title="Login" />
+          <Account component={<Login />} />
+        </>
+      } />
 
       <Route path="/terms" element={
         <>

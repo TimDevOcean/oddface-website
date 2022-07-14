@@ -68,7 +68,7 @@
 
 main {
     min-height: 400px;
-    padding: 12px;
+    padding: 2px;
 }
   
 .page-header {
@@ -380,6 +380,10 @@ main {
         padding: 25px 10px;
     }
 
+    .account .paper {
+        padding: 35px 10px !important;
+    }
+
     .booking-summary span {
         color: #202020;
         font-size: 15px !important;
@@ -436,6 +440,10 @@ main {
 
     .footer hr {
         width: 80% !important;
+    }
+
+    .customer-orders th, .customer-orders td {
+        font-size: 10px;
     }
 
 }
