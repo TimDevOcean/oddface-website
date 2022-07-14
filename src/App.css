@@ -263,7 +263,6 @@ main {
         border-radius: 50px !important;
         background: #fff;
         box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 12px;
-        border-radius: 15px;    
     }
 
     .mobile-menu a, li {
@@ -417,6 +416,14 @@ main {
 
     .subscribe input {
         width: 200px !important;
+    }
+
+    .contact p {
+        font-size: 13px;
+    }
+
+    .contact-form {
+        height: 300px !important;
     }
 
 }
