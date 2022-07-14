@@ -423,7 +423,19 @@ main {
     }
 
     .contact-form {
-        height: 300px !important;
+        height: 200px !important;
+    }
+
+    .footer {
+        padding: 2px;
+    }
+
+    .footer-bottom {
+        font-size: 14px;
+    }
+
+    .footer hr {
+        width: 80% !important;
     }
 
 }
