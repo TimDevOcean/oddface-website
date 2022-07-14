@@ -39,6 +39,11 @@
     text-align: center !important;
 }
 
+.customer-info {
+    max-width: 800px;
+    margin: auto;
+}
+
 .account-menu {
     padding: 5px 25px;
 }

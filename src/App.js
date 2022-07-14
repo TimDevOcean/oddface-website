@@ -241,13 +241,6 @@ const App = () => {
         </>
       } />
 
-      <Route path="/account" element={
-        <>
-          <Header title="Your Account" />
-          <Account component={<Dashboard />} />
-        </>
-      } />
-
       <Route path="/account/:loginToken" element={
         <>
           <Header title="Your Account" />
@@ -255,6 +248,12 @@ const App = () => {
         </>
       } />
 
+      <Route path="/account" element={
+        <>
+          <Header title="Your Account" />
+          <Login />
+        </>
+      } />
 
       <Route path="/account/login" element={
         <>

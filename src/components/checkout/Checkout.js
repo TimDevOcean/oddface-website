@@ -115,7 +115,7 @@ const Checkout = ({ cart, orderInfo, orderError, handleCheckout }) => {
           );
           setCheckoutData(response);
         } catch (error) {
-          console.error("Checkout error: ", error);
+          console.log("Checkout error: ", error);
         }
       };
       generateToken();
