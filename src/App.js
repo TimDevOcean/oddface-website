@@ -251,7 +251,7 @@ const App = () => {
       <Route path="/account" element={
         <>
           <Header title="Your Account" />
-          <Login />
+          <Account component={<Dashboard />} />
         </>
       } />
 

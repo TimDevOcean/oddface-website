@@ -35,7 +35,7 @@ export const Orders = (props) => {
                 <TableCell></TableCell>
                 <TableCell>
                     You don't have any orders at the moment.<br /><br />
-                    <Link className='product-view-cart-btn' to="/shop">Shop Now</Link><br /><br />
+                    <Link style={{textDecoration:'none'}} className='product-view-cart-btn' to="/shop">Shop Now</Link><br /><br />
                 </TableCell>
                 <TableCell></TableCell>
             </TableRow>

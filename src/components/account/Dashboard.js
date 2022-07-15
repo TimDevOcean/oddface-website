@@ -86,8 +86,13 @@ export const Dashboard = () => {
     }
 
     const logoutCustomer = () => {
+        setLoading(true);
         commerce.customer.logout();
+        if (!commerce.customer.id){
+            setLoading(false);
+        } else {
         console.log("Customer logged out");
+        }
     }
     
     useEffect(() => {
@@ -117,25 +122,23 @@ export const Dashboard = () => {
             <Grid item md={4}>
                 <button onClick={logoutCustomer}><LogoutIcon /> Logout</button>
             </Grid>
-        </Grid>
+        </Grid><br />
+        {loading &&
+            <LinearProgress className="linear-loader" sx={{ color:'#b00000',width:'50%' }} color="inherit" />
+        }
+        <p className={visibility} style={{textAlign:'center',fontSize:'12px', color:`${msgColor}`}}>
+            {message}
+        </p>
         <Container className='account dashboard'>
           <Paper className="paper" elevation={3}>
             {dashboard === 'myorders' ?
                 <Orders orders={orders}/>
             : dashboard === 'myinfo' ?
-            <>
                 <Info 
                     customer={customer}
                     handleChange={handleChange}
                     handleSubmit={handleSubmit}
-                /><br />
-                {loading &&
-                    <LinearProgress className="linear-loader" sx={{ color:'#b00000',width:'50%' }} color="inherit" />
-                }<br />
-                <p className={visibility} style={{textAlign:'center',fontSize:'12px', color:`${msgColor}`}}>
-                    {message}
-                </p>
-            </>
+                />
             : <p style={{textAlign:'center'}}>Welcome {customer.firstname}</p>
             }
           </Paper>

@@ -52,7 +52,6 @@ const [visibility, setVisibility] = useState('hide');
     );
 
     const key = process.env.REACT_APP_CHEC_SECRET_KEY;
-    console.log("Key is " + key);
     
     let headers = {
         "X-Authorization": key,
@@ -72,7 +71,7 @@ const [visibility, setVisibility] = useState('hide');
         headers: headers,
         body: body
     })
-        .then(response => response.json())
+        .then(response =>  response.json())
         .then(json => {
             console.log(json);
             if (json.id){
@@ -82,10 +81,9 @@ const [visibility, setVisibility] = useState('hide');
                 setMessage(`Account created successfully, please check your email for the link.`);
                 setVisibility('show');
             } else {
-                console.log('Error');
                 setLoading(false);
                 setMsgColor('red');
-                setMessage('There was an error, please review your details or try again.');
+                setMessage(json.error.errors.email);
                 setVisibility('show');            
             }
         })
@@ -138,6 +136,7 @@ const [visibility, setVisibility] = useState('hide');
                         id="email"
                         name="email"
                         label="Email"
+                        value={customer.email || ''}
                         onChange={handleChange}
                         />
                     </Grid>
@@ -175,6 +174,7 @@ const [visibility, setVisibility] = useState('hide');
                         id="firstname"
                         name="firstname"
                         label="First Name"
+                        value={customer.firstname || ''}
                         onChange={handleChange}
                         />
                     </Grid>
@@ -187,6 +187,7 @@ const [visibility, setVisibility] = useState('hide');
                         id="lastname"
                         name="lastname"
                         label="Last Name"
+                        value={customer.lastname || ''}
                         onChange={handleChange}
                         />
                     </Grid>
@@ -199,6 +200,7 @@ const [visibility, setVisibility] = useState('hide');
                         id="email"
                         name="email"
                         label="Email"
+                        value={customer.email || ''}
                         onChange={handleChange}
                         />
                     </Grid>
@@ -210,6 +212,7 @@ const [visibility, setVisibility] = useState('hide');
                         id="phone"
                         name="phone"
                         label="Phone (Int.)"
+                        value={customer.phone || ''}
                         onChange={handleChange}
                         />
                     </Grid>
