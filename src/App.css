@@ -244,11 +244,17 @@ main {
     .app-container {
         width: 100%;
         margin: auto;
+        padding: 8px;
+    }
+
+    .home .app-container {
+        padding: 0px;
     }
 
     main {
         margin-top: -35px;
         min-height: 200px;
+        padding: 0px;
     }
 
     .nav-bar {
@@ -373,15 +379,43 @@ main {
     }
 
     .checkout-container {
-        padding: 0 !important;
+        padding: 5px !important;
     }
 
     .checkout .paper {
         padding: 25px 10px;
     }
 
+    .app-container .account {
+        padding: 0px;
+    }
+
+    .account {
+        font-size: 12px;
+    }
+
     .account .paper {
         padding: 35px 10px !important;
+    }
+
+    .account-menu {
+        border-radius: 50px !important;
+        background: #fff;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 12px;
+        margin-top: -50px;
+    }
+
+    .dashboard {
+        margin-top: 20px !important;
+    }
+
+    .account-menu button {
+        padding: 5px !important;
+        font-size: 14px !important;
+    }
+
+    .account .product-view-cart-btn {
+        font-size: 15px;
     }
 
     .booking-summary span {

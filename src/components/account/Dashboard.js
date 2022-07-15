@@ -113,14 +113,14 @@ export const Dashboard = () => {
         {commerce.customer.isLoggedIn() === true ?
         <main>
         <Grid container className='account-menu'>
-            <Grid item md={4}>
-                <button name='myorders' onClick={handleMenu}><BusinessCenterIcon /> My Orders</button>
+            <Grid item xs={4} md={4}>
+                <button name='myorders' onClick={handleMenu}><BusinessCenterIcon fontSize="inherit"/> My Orders</button>
             </Grid>
-            <Grid sx={{borderLeft:'1px solid #dadada',borderRight:'1px solid #dadada'}} item md={4}>
-                <button name='myinfo' onClick={handleMenu}><EditIcon /> My Info</button>
+            <Grid item xs={4} md={4} sx={{borderLeft:'1px solid #dadada',borderRight:'1px solid #dadada'}}>
+                <button name='myinfo' onClick={handleMenu}><EditIcon  fontSize="inherit"/> My Info</button>
             </Grid>
-            <Grid item md={4}>
-                <button onClick={logoutCustomer}><LogoutIcon /> Logout</button>
+            <Grid item xs={4} md={4}>
+                <button onClick={logoutCustomer}><LogoutIcon fontSize="inherit"/> Logout</button>
             </Grid>
         </Grid><br />
         {loading &&

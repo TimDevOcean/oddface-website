@@ -16,7 +16,7 @@ export const Orders = (props) => {
         <Table sx={{ maxWidth:900 }} size='small' aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Reference ID</TableCell>
+            <TableCell>Reference</TableCell>
             <TableCell>Amount Paid</TableCell>
             <TableCell>Status</TableCell>
           </TableRow>
