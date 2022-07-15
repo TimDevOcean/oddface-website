@@ -7,6 +7,7 @@
 
 .linear-loader {
     width: 100%;
+    margin: 0 auto;
 }
 
   .account .paper {
@@ -63,3 +64,16 @@
     color: #b00000;
 }
 
+.text-link {
+    font-size: 15px;
+    background: none;
+    color: #b00000;
+    text-decoration: underline;
+    border: none;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.text-link:hover {
+    color:#800000;
+}

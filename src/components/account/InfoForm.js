@@ -1,3 +1,5 @@
+import React from 'react';
+
 import {
     Grid,
     TextField,
@@ -7,7 +9,9 @@ import {
     customer = {},
     handleChange,
     handleSubmit,
-  }) => (
+  }) => {
+
+return (
     <form className="" onSubmit={handleSubmit} autoComplete="off">
       <Grid container spacing={4}>
         <Grid item xs={12} sm={6}>
@@ -16,7 +20,7 @@ import {
             required
             fullWidth
             id="first-name"
-            name="firstName"
+            name="firstname"
             label="First Name"
             value={customer.firstname || ''}
             onChange={handleChange}
@@ -28,7 +32,7 @@ import {
             required
             fullWidth
             id="last-name"
-            name="lastName"
+            name="lastname"
             label="Last Name"
             value={customer.lastname || ''}
             onChange={handleChange}
@@ -60,12 +64,11 @@ import {
             onChange={handleChange}
           />
         </Grid>  
-      </Grid>
-        <br />
-        <button onClick={handleSubmit} className="product-view-cart-btn" type="submit">
-          Update
-        </button>
+      </Grid><br /><br />
+      <button onClick={handleSubmit} className="product-view-cart-btn" type="submit">
+        Update
+      </button>
     </form>
   );
-  
+}  
   export default InfoForm;

@@ -5,10 +5,12 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { LinearProgress } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 
 export const Orders = (props) => {
     let orders = props.orders;
+    console.log(orders);
   return (
     <div className='customer-orders'>
         <Table sx={{ maxWidth:900 }} size='small' aria-label="simple table">
@@ -20,7 +22,7 @@ export const Orders = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-            {orders ? 
+            {orders?.length > 0  ? 
             orders.map((order) => (
                 <TableRow key={order.customer_reference}>
                     <TableCell>{order.customer_reference}</TableCell>
@@ -28,6 +30,15 @@ export const Orders = (props) => {
                     <TableCell>{order.status_fulfillment}</TableCell>
                 </TableRow>
             ))
+            : orders === undefined ?
+            <TableRow className='dashboard-msg-box'>
+                <TableCell></TableCell>
+                <TableCell>
+                    You don't have any orders at the moment.<br /><br />
+                    <Link className='product-view-cart-btn' to="/shop">Shop Now</Link><br /><br />
+                </TableCell>
+                <TableCell></TableCell>
+            </TableRow>
             :   <TableRow>
                     <TableCell>
                         <LinearProgress className="linear-loader" sx={{ color:'#b00000' }} color="inherit" />
